@@ -80,7 +80,7 @@ export default function MobileNavigation({ className = '' }: MobileNavigationPro
           />
           
           {/* Menu panel */}
-          <div className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-black/95 backdrop-blur-md border-l border-white/10 z-50 transform transition-transform duration-300 ease-in-out">
+          <div className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-black backdrop-blur-md border-l border-white/10 z-50 transform transition-transform duration-300 ease-in-out">
             <div className="flex flex-col h-full">
               {/* Header */}
               <div className="flex items-center justify-between p-4 border-b border-white/10">
