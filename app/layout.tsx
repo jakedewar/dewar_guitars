@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         alt: 'Handcrafted Dewar Guitar - Heirloom Luthiery',
       },
       {
-        url: '/images/64ff64d81643c4f37964cac8_Dewar v2b PNG.png',
+        url: '/images/dewar_guitars_main_logo.png',
         width: 800,
         height: 400,
         alt: 'Dewar Guitars Logo',
@@ -121,7 +121,7 @@ export default function RootLayout({
               "name": "Dewar Guitars",
               "description": "Handcrafted guitars by one man, from raw wood to final note. Only 12 guitars per year.",
               "url": "https://dewarguitars.com",
-              "logo": "https://dewarguitars.com/images/64ff64d81643c4f37964cac8_Dewar v2b PNG.png",
+              "logo": "https://dewarguitars.com/images/dewar_guitars_main_logo.png",
               "image": "https://dewarguitars.com/images/DewarGuitars_1.webp",
               "address": {
                 "@type": "PostalAddress",

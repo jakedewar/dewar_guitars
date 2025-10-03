@@ -12,7 +12,7 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <Image
-                src="/images/64ff64d81643c4f37964cac8_Dewar v2b PNG.png"
+                src="/images/dewar_guitars_main_logo.png"
                 alt="Dewar Guitars"
                 width={200}
                 height={60}
@@ -63,7 +63,7 @@ export default function Home() {
           <div className="mb-16">
             <div className="mb-8">
               <Image
-                src="/images/64ff64d81643c4f37964cac8_Dewar v2b PNG.png"
+                src="/images/dewar_guitars_main_logo.png"
                 alt="Dewar Guitars"
                 width={300}
                 height={90}
@@ -360,7 +360,7 @@ export default function Home() {
             {/* Brand Section */}
             <div className="space-y-6">
               <Image
-                src="/images/64ff64d81643c4f37964cac8_Dewar v2b PNG.png"
+                src="/images/dewar_guitars_main_logo.png"
                 alt="Dewar Guitars"
                 width={200}
                 height={60}
