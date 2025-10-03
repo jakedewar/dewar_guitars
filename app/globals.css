@@ -111,4 +111,111 @@
   .video-loading {
     transition: opacity 0.3s ease-in-out;
   }
+  
+  /* Hero section luxury animations */
+  .hero-fade-in {
+    animation: heroFadeIn 1.2s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .hero-logo-float {
+    animation: logoFloat 6s ease-in-out infinite;
+  }
+  
+  .hero-text-reveal {
+    animation: textReveal 1.5s ease-out 0.3s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .hero-button-glow {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-button-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.5s;
+  }
+  
+  .hero-button-glow:hover::before {
+    left: 100%;
+  }
+  
+  @keyframes heroFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes logoFloat {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes textReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Luxury scroll indicator */
+  .scroll-indicator {
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes scrollPulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translateY(5px);
+    }
+  }
+  
+  /* Premium text shadows */
+  .luxury-text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  /* Subtle parallax effect */
+  .parallax-bg {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  /* Performance optimizations for Hero section */
+  .hero-optimized {
+    contain: layout style paint;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-fade-in,
+    .hero-logo-float,
+    .hero-text-reveal,
+    .scroll-indicator {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
 }

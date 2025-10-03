@@ -46,51 +46,64 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-        {/* Simple, elegant background */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black hero-optimized">
+        {/* Enhanced background with better contrast */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/DewarGuitars_1.webp"
             alt="Handcrafted Dewar Guitar"
             fill
-            className="object-cover opacity-30"
+            className="object-cover opacity-35"
             priority
           />
+          {/* Lighter gradient overlay for better image visibility while maintaining text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60"></div>
+          {/* Subtle luxury pattern overlay */}
+          <div className="absolute inset-0 opacity-[0.02]" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}></div>
         </div>
 
-        <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6">
-          {/* Ultra-luxury typography */}
-          <div className="mb-16">
-            <div className="mb-8">
+        <div className="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6">
+          {/* Ultra-luxury typography with enhanced mobile optimization */}
+          <div className="mb-12 sm:mb-16 md:mb-20 hero-fade-in">
+            <div className="mb-6 sm:mb-8">
               <Image
                 src="/images/Dewar v1b trans SVG 1.svg"
                 alt="Dewar Guitars"
                 width={600}
                 height={180}
-                className="h-48 md:h-64 lg:h-80 xl:h-96 w-auto mx-auto opacity-95"
+                className="h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64 w-auto mx-auto opacity-95 drop-shadow-2xl luxury-text-shadow"
                 priority
               />
             </div>
-            <div className="w-24 h-px bg-white/60 mx-auto mb-8"></div>
-            <p className="text-2xl sm:text-3xl md:text-4xl font-light tracking-wide leading-relaxed text-white/90 max-w-4xl mx-auto">
+            <div className="w-16 sm:w-24 h-px bg-white/70 mx-auto mb-6 sm:mb-8"></div>
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-relaxed text-white/95 max-w-5xl mx-auto drop-shadow-lg luxury-text-shadow hero-text-reveal">
               Only 12 guitars per year.<br />
-              <span className="text-xl sm:text-2xl md:text-3xl text-white/70">Each instrument a unique masterpiece, handcrafted by one artisan from raw wood to final note.</span>
+              <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/80">Each instrument a unique masterpiece, handcrafted by one artisan from raw wood to final note.</span>
             </p>
           </div>
           
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6 hero-text-reveal">
             <Button 
               size="lg" 
-              className="bg-transparent border-2 border-white/80 text-white hover:bg-white hover:text-black text-base sm:text-lg px-8 sm:px-16 py-4 sm:py-6 rounded-none font-light tracking-[0.1em] transition-all duration-500 hover:border-white w-full sm:w-auto"
+              className="bg-transparent border-2 border-white/90 text-white hover:bg-white hover:text-black text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-12 lg:px-16 py-3 sm:py-4 md:py-5 lg:py-6 rounded-none font-light tracking-[0.1em] transition-all duration-700 hover:border-white hover:shadow-2xl hover:shadow-white/20 w-full sm:w-auto group relative overflow-hidden hero-button-glow"
             >
-              Apply for the 2025 Collection
+              <span className="relative z-10">Apply for the 2025 Collection</span>
+              <div className="absolute inset-0 bg-white/5 scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
             </Button>
-            <div className="text-sm text-white/50 tracking-[0.2em] uppercase">
+            <div className="text-xs sm:text-sm text-white/60 tracking-[0.2em] uppercase">
               Limited Edition • Handcrafted in Massachusetts
             </div>
           </div>
         </div>
 
+        {/* Enhanced scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+          <div className="w-px h-12 bg-white/30 relative scroll-indicator">
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-white/60 rounded-full"></div>
+          </div>
+        </div>
       </section>
 
       {/* The Story Section */}
