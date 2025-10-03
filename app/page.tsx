@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import MobileNavigation from "@/components/MobileNavigation"
+import StoryCarousel from "@/components/StoryCarousel"
 
 export default function Home() {
   return (
@@ -106,59 +107,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Story Section */}
-      <section id="story" className="pt-40 pb-32 bg-white text-black relative overflow-hidden">
-        {/* Subtle background pattern */}
-        <div className="absolute inset-0 opacity-[0.02]">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}></div>
-        </div>
-        
-        <div className="container mx-auto px-6 md:px-8 lg:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-8">
-              <div>
-                <div className="text-sm text-gray-500 tracking-[0.3em] uppercase mb-4">The Story</div>
-                <h2 className="text-6xl md:text-7xl font-thin tracking-wide leading-tight">
-                  A Decade of<br />
-                  <span className="text-gray-600">Perfection</span>
-                </h2>
-              </div>
-              
-              <div className="space-y-6">
-                <p className="text-xl leading-relaxed text-gray-700 font-light">
-                  For over 10 years, I&apos;ve built the guitar I always wanted to play — machining every part, 
-                  carving every contour, voicing every note.
-                </p>
-                <p className="text-lg leading-relaxed text-gray-600 font-light">
-                  Each Dewar is my vision, brought to life through uncompromising craftsmanship and attention to detail.
-                </p>
-              </div>
-              
-              <div className="pt-8 border-t border-gray-200">
-                <div className="text-xs text-gray-500 tracking-[0.4em] uppercase">
-                  Handcrafted in Massachusetts
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative group">
-              <div className="relative h-[600px] overflow-hidden">
-                <Image
-                  src="/images/DewarGuitars_2.webp"
-                  alt="Workshop craftsmanship"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500"></div>
-              </div>
-              {/* Decorative frame */}
-              <div className="absolute -inset-4 border border-gray-200 opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* The Story Section - Carousel */}
+      <div className="pt-20">
+        <StoryCarousel />
+      </div>
 
       {/* The Collection Section */}
       <section id="collection" className="py-32 bg-black text-white relative overflow-hidden">
@@ -253,7 +205,7 @@ export default function Home() {
             </h2>
             <div className="w-32 h-px bg-gray-300 mx-auto mb-12"></div>
             <p className="text-2xl max-w-4xl mx-auto leading-relaxed text-gray-700 font-light">
-              Most builders buy parts. I machine my own. Every fret, every bridge, every curve is hand-shaped in my Massachusetts workshop.
+              Most builders buy parts. Master luthier Jim Dewar machines his own. Every fret, every bridge, every curve is hand-shaped in his Massachusetts workshop.
             </p>
           </div>
           
@@ -375,7 +327,7 @@ export default function Home() {
               />
               <div className="space-y-3">
                 <p className="text-white/60 font-light leading-relaxed max-w-sm">
-                  Handcrafted in Massachusetts. Only 12 guitars per year. Each instrument represents a decade of uncompromising craftsmanship.
+                  Handcrafted by master luthier Jim Dewar in Massachusetts. Only 12 guitars per year. Each instrument represents a decade of uncompromising craftsmanship.
                 </p>
                 <div className="text-xs text-white/40 tracking-[0.2em] uppercase">
                   Limited Edition • Artisanal Craftsmanship
