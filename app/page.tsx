@@ -10,34 +10,34 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-3 sm:py-5">
           <div className="flex items-center justify-between">
-            <div className="flex items-center">
+            <Link href="/" className="flex items-center">
               <Image
-                src="/images/dewar_guitars_main_logo.png"
+                src="/images/DEWAR v3 trans AI 1.svg"
                 alt="Dewar Guitars"
-                width={200}
-                height={60}
-                className="h-12 w-auto opacity-95"
+                width={150}
+                height={45}
+                className="h-8 sm:h-10 w-auto opacity-95"
                 priority
               />
-            </div>
+            </Link>
             
             <nav className="hidden lg:flex items-center space-x-12">
-              <a href="#story" className="text-white/80 hover:text-white transition-all duration-500 font-light tracking-[0.1em] text-sm uppercase relative group">
+              <Link href="/#story" className="text-white/80 hover:text-white transition-all duration-500 font-light tracking-[0.1em] text-sm uppercase relative group">
                 Story
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-500 group-hover:w-full"></span>
-              </a>
-              <a href="#collection" className="text-white/80 hover:text-white transition-all duration-500 font-light tracking-[0.1em] text-sm uppercase relative group">
+              </Link>
+              <Link href="/#collection" className="text-white/80 hover:text-white transition-all duration-500 font-light tracking-[0.1em] text-sm uppercase relative group">
                 Collection
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-500 group-hover:w-full"></span>
-              </a>
-              <a href="#craftsmanship" className="text-white/80 hover:text-white transition-all duration-500 font-light tracking-[0.1em] text-sm uppercase relative group">
+              </Link>
+              <Link href="/#craftsmanship" className="text-white/80 hover:text-white transition-all duration-500 font-light tracking-[0.1em] text-sm uppercase relative group">
                 Craftsmanship
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-500 group-hover:w-full"></span>
-              </a>
-              <a href="#apply" className="text-white/80 hover:text-white transition-all duration-500 font-light tracking-[0.1em] text-sm uppercase relative group">
+              </Link>
+              <Link href="/#apply" className="text-white/80 hover:text-white transition-all duration-500 font-light tracking-[0.1em] text-sm uppercase relative group">
                 Apply
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-500 group-hover:w-full"></span>
-              </a>
+              </Link>
             </nav>
             
             <MobileNavigation />
@@ -63,18 +63,18 @@ export default function Home() {
           <div className="mb-16">
             <div className="mb-8">
               <Image
-                src="/images/dewar_guitars_main_logo.png"
+                src="/images/Dewar v1b trans SVG 1.svg"
                 alt="Dewar Guitars"
-                width={300}
-                height={90}
-                className="h-24 md:h-32 w-auto mx-auto opacity-95"
+                width={600}
+                height={180}
+                className="h-48 md:h-64 lg:h-80 xl:h-96 w-auto mx-auto opacity-95"
                 priority
               />
             </div>
             <div className="w-24 h-px bg-white/60 mx-auto mb-8"></div>
             <p className="text-2xl sm:text-3xl md:text-4xl font-light tracking-wide leading-relaxed text-white/90 max-w-4xl mx-auto">
               Only 12 guitars per year.<br />
-              <span className="text-xl sm:text-2xl md:text-3xl text-white/70">Handcrafted by one man, from raw wood to final note.</span>
+              <span className="text-xl sm:text-2xl md:text-3xl text-white/70">Each instrument a unique masterpiece, handcrafted by one artisan from raw wood to final note.</span>
             </p>
           </div>
           
@@ -91,12 +91,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-          <div className="w-px h-16 bg-white/30 relative">
-            <div className="absolute top-0 left-0 w-full h-8 bg-white/60 animate-pulse"></div>
-          </div>
-        </div>
       </section>
 
       {/* The Story Section */}
@@ -360,11 +354,11 @@ export default function Home() {
             {/* Brand Section */}
             <div className="space-y-6">
               <Image
-                src="/images/dewar_guitars_main_logo.png"
+                src="/images/DEWAR v3 trans AI 1.svg"
                 alt="Dewar Guitars"
-                width={200}
-                height={60}
-                className="h-16 w-auto opacity-90"
+                width={150}
+                height={45}
+                className="h-12 w-auto opacity-90"
               />
               <div className="space-y-3">
                 <p className="text-white/60 font-light leading-relaxed max-w-sm">

@@ -107,11 +107,11 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center">
               <Image
-                src="/images/64ff64d81643c4f37964cac8_Dewar v2b PNG.png"
+                src="/images/DEWAR v3 trans AI 1.svg"
                 alt="Dewar Guitars"
-                width={200}
-                height={60}
-                className="h-10 sm:h-12 w-auto opacity-95"
+                width={150}
+                height={45}
+                className="h-8 sm:h-10 w-auto opacity-95"
                 priority
               />
             </Link>
@@ -335,17 +335,95 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
         </div>
       </section>
 
+      {/* Why Buy a Distiller Section */}
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-black text-white">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-thin tracking-wide mb-4 sm:mb-6 md:mb-8">
+              Why Buy a Distiller?
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-white/70 font-light max-w-3xl mx-auto leading-relaxed px-2">
+              Artists deserve artistry. Every musician deserves an instrument that matches their passion, dedication, and creative vision.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
+            <div className="text-center space-y-3 sm:space-y-4 md:space-y-6">
+              <div className="relative w-full h-40 sm:h-48 md:h-56 mb-3 sm:mb-4 md:mb-6">
+                <Image
+                  src="/images/DewarGuitars_1.webp"
+                  alt="Hand-crafted guitar detail"
+                  fill
+                  className="object-cover opacity-80"
+                />
+                <div className="absolute inset-0 bg-black/20"></div>
+              </div>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-light">Passion-Driven Craft</h3>
+              <p className="text-xs sm:text-sm md:text-base text-white/70 font-light leading-relaxed max-w-sm mx-auto px-2">
+                Each Distiller is born from a decade of uncompromising dedication to the art of guitar making. This isn't just manufacturing—it's artistry.
+              </p>
+            </div>
+            
+            <div className="text-center space-y-3 sm:space-y-4 md:space-y-6">
+              <div className="relative w-full h-40 sm:h-48 md:h-56 mb-3 sm:mb-4 md:mb-6">
+                <Image
+                  src="/images/DewarGuitars_2.webp"
+                  alt="Custom bridge detail"
+                  fill
+                  className="object-cover opacity-80"
+                />
+                <div className="absolute inset-0 bg-black/20"></div>
+              </div>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-light">Uncompromising Quality</h3>
+              <p className="text-xs sm:text-sm md:text-base text-white/70 font-light leading-relaxed max-w-sm mx-auto px-2">
+                With 90% hand-crafted components and meticulous attention to every detail, the Distiller represents the pinnacle of guitar craftsmanship.
+              </p>
+            </div>
+            
+            <div className="text-center space-y-3 sm:space-y-4 md:space-y-6 sm:col-span-2 lg:col-span-1">
+              <div className="relative w-full h-40 sm:h-48 md:h-56 mb-3 sm:mb-4 md:mb-6">
+                <Image
+                  src="/images/DewarGuitars_3.webp"
+                  alt="Innovation meets tradition"
+                  fill
+                  className="object-cover opacity-80"
+                />
+                <div className="absolute inset-0 bg-black/20"></div>
+              </div>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-light">Innovation Meets Tradition</h3>
+              <p className="text-xs sm:text-sm md:text-base text-white/70 font-light leading-relaxed max-w-sm mx-auto px-2">
+                Revolutionary features like our tool-less bridge system combined with time-honored techniques create an instrument that's both cutting-edge and timeless.
+              </p>
+            </div>
+          </div>
+          
+          <div className="mt-8 sm:mt-12 md:mt-16 text-center">
+            <div className="bg-white/5 border border-white/10 p-6 sm:p-8 md:p-12 rounded-none max-w-4xl mx-2 sm:mx-auto">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-light tracking-wide mb-3 sm:mb-4 md:mb-6">
+                Limited to 12 Guitars Per Year
+              </h3>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/80 font-light leading-relaxed mb-4 sm:mb-6 md:mb-8 px-2">
+                Each Distiller is a rare masterpiece. When you own one, you're not just buying a guitar—you're joining an exclusive community of artists who demand nothing less than perfection.
+              </p>
+              <div className="text-xs sm:text-sm text-white/60 tracking-[0.2em] uppercase">
+                Exclusivity • Artistry • Legacy
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-black border-t border-white/5">
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12 items-start">
             <div className="space-y-4 sm:space-y-6">
               <Image
-                src="/images/64ff64d81643c4f37964cac8_Dewar v2b PNG.png"
+                src="/images/DEWAR v3 trans AI 1.svg"
                 alt="Dewar Guitars"
-                width={200}
-                height={60}
-                className="h-12 sm:h-16 w-auto opacity-90"
+                width={150}
+                height={45}
+                className="h-10 sm:h-12 w-auto opacity-90"
               />
               <div className="space-y-2 sm:space-y-3">
                 <p className="text-sm sm:text-base text-white/60 font-light leading-relaxed max-w-sm">
