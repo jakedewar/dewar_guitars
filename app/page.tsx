@@ -131,9 +131,6 @@ export default function Home() {
             <p className="text-2xl text-white/60 font-light tracking-wide mb-4">
               Only 12 will be built this year
             </p>
-            <p className="text-lg text-white/40 font-light tracking-wide">
-              Starting at $3,499 • Handcrafted Investment
-            </p>
           </div>
           
           {/* Single Distiller Collection Card */}
@@ -167,7 +164,7 @@ export default function Home() {
                   <div>
                     <h3 className="text-3xl lg:text-4xl font-light mb-4 tracking-wide">The Distiller</h3>
                     <p className="text-white/60 text-base lg:text-lg font-light leading-relaxed mb-6">
-                      Our flagship model featuring 90% hand-crafted components, custom tool-less bridge, and hand-wound humbuckers. Each guitar is a unique masterpiece with hand-painted finishes that will never be exactly replicated.
+                      Each guitar is a unique masterpiece with hand-painted finishes that will never be exactly replicated.
                     </p>
                     
                     {/* Key Features */}
@@ -197,10 +194,7 @@ export default function Home() {
                     {/* Pricing */}
                     <div className="mb-6">
                       <div className="text-2xl lg:text-3xl font-light tracking-wide text-white mb-1">
-                        Starting at $3,499
-                      </div>
-                      <div className="text-xs text-white/50 tracking-[0.2em] uppercase">
-                        Handcrafted Investment
+                        $3,499
                       </div>
                     </div>
                   </div>

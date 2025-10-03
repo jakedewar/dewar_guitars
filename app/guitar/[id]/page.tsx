@@ -18,6 +18,7 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
     name: "The Distiller",
     status: "Available",
     model: "Distiller",
+    finish: "Hand-painted (Unique to each guitar)",
     price: "$3,499",
     features: "90% Hand-crafted Components",
     description: "Our flagship model, the Distiller is a combination of skillfully hand-crafted unique design innovations, paired with the creature comforts and familiarities of our favorite player guitars. Built at our build-barn in Massachusetts, USA, the Distiller fuses an intricate, custom-designed bridge for granular, tool-less action and intonation, a streamlined 'c-shape' neck for comfort and stability while accessing all 22 frets, and two, hand-wound humbuckers for a truly never-felt-before playing experience. Each guitar features a unique hand-painted finish that will never be exactly replicated.",
