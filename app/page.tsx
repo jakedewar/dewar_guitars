@@ -136,44 +136,77 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((num) => (
-              <div key={num} className="group relative overflow-hidden bg-gray-950/50 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-700">
-                <div className="aspect-square relative overflow-hidden">
+          {/* Single Distiller Collection Card */}
+          <div className="max-w-4xl mx-auto">
+            <div className="group relative overflow-hidden bg-gray-950/50 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-700">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                {/* Image Section */}
+                <div className="aspect-square lg:aspect-auto lg:h-96 relative overflow-hidden">
                   <Image
-                    src={`/images/DewarGuitars_${Math.min(num, 5)}.webp`}
-                    alt={`Dewar Guitar #${num}`}
+                    src="/images/DewarGuitars_1.webp"
+                    alt="Dewar Distiller Collection"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-1000"
-                    priority={num <= 6}
+                    priority
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
                   
-                  {num <= 3 && (
-                    <div className="absolute top-6 right-6 bg-red-900/90 backdrop-blur-sm text-white px-4 py-2 text-xs font-medium tracking-[0.1em] uppercase border border-red-800/50">
-                      Owned
-                    </div>
-                  )}
+                  {/* Collection Badge */}
+                  <div className="absolute top-6 right-6 bg-white/10 backdrop-blur-sm text-white px-4 py-2 text-xs font-medium tracking-[0.1em] uppercase border border-white/20">
+                    Limited Edition
+                  </div>
                   
-                  {/* Number overlay */}
+                  {/* Collection Number */}
                   <div className="absolute bottom-6 left-6 text-6xl font-thin text-white/20 group-hover:text-white/40 transition-colors duration-500">
-                    {num.toString().padStart(2, '0')}
+                    2025
                   </div>
                 </div>
                 
-                <div className="p-8 space-y-4">
+                {/* Content Section */}
+                <div className="p-8 lg:p-12 space-y-6 flex flex-col justify-center">
                   <div>
-                    <h3 className="text-2xl font-light mb-2 tracking-wide">Dewar #{num}</h3>
-                    <p className="text-white/60 text-sm font-light leading-relaxed">
-                      {num === 1 && "Brazilian Rosewood • Natural Finish • Hand-voiced"}
-                      {num === 2 && "Quilted Maple • Tobacco Burst • Custom Hardware"}
-                      {num === 3 && "Mahogany • Cherry Sunburst • Aged Finish"}
-                      {num > 3 && "Specifications to be revealed"}
+                    <h3 className="text-3xl lg:text-4xl font-light mb-4 tracking-wide">The Distiller</h3>
+                    <p className="text-white/60 text-base lg:text-lg font-light leading-relaxed mb-6">
+                      Our flagship model featuring 90% hand-crafted components, custom tool-less bridge, and hand-wound humbuckers. Each guitar is a unique masterpiece with hand-painted finishes that will never be exactly replicated.
                     </p>
+                    
+                    {/* Key Features */}
+                    <div className="space-y-3 mb-6">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-1.5 h-1.5 bg-white/60 rounded-full flex-shrink-0"></div>
+                        <span className="text-sm text-white/70 font-light">Custom Tool-less Bridge</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <div className="w-1.5 h-1.5 bg-white/60 rounded-full flex-shrink-0"></div>
+                        <span className="text-sm text-white/70 font-light">Hand-wound Humbuckers</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <div className="w-1.5 h-1.5 bg-white/60 rounded-full flex-shrink-0"></div>
+                        <span className="text-sm text-white/70 font-light">Streamlined C-shape Neck</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <div className="w-1.5 h-1.5 bg-white/60 rounded-full flex-shrink-0"></div>
+                        <span className="text-sm text-white/70 font-light">90% Hand-crafted Components</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <div className="w-1.5 h-1.5 bg-white/60 rounded-full flex-shrink-0"></div>
+                        <span className="text-sm text-white/70 font-light">Unique Hand-painted Finish</span>
+                      </div>
+                    </div>
+                    
+                    {/* Pricing */}
+                    <div className="mb-6">
+                      <div className="text-2xl lg:text-3xl font-light tracking-wide text-white mb-1">
+                        Starting at $3,499
+                      </div>
+                      <div className="text-xs text-white/50 tracking-[0.2em] uppercase">
+                        Handcrafted Investment
+                      </div>
+                    </div>
                   </div>
                   
                   <div className="pt-2">
-                    <Link href={`/guitar/${num}`}>
+                    <Link href="/guitar/distiller">
                       <button className="w-full border border-white/30 text-white/90 hover:bg-white hover:text-black hover:border-white transition-all duration-700 font-light tracking-[0.1em] text-sm uppercase py-4 group relative overflow-hidden bg-transparent touch-manipulation active:scale-95">
                         <span className="relative z-10">View Details</span>
                         <div className="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
@@ -182,7 +215,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>

@@ -12,92 +12,30 @@ interface GuitarPageProps {
 
 export default async function GuitarPage({ params }: GuitarPageProps) {
   const { id } = await params
-  const guitarId = parseInt(id)
   
-  // Guitar data based on actual Dewar Guitars website
-  const guitarData = {
-    1: {
-      name: "Distiller - Bourbon Burst",
-      status: "Available",
+  // Single Distiller model data - works for any ID since it's the only model
+  const guitar = {
+    name: "The Distiller",
+    status: "Available",
+    model: "Distiller",
+    price: "$3,499",
+    features: "90% Hand-crafted Components",
+    description: "Our flagship model, the Distiller is a combination of skillfully hand-crafted unique design innovations, paired with the creature comforts and familiarities of our favorite player guitars. Built at our build-barn in Massachusetts, USA, the Distiller fuses an intricate, custom-designed bridge for granular, tool-less action and intonation, a streamlined 'c-shape' neck for comfort and stability while accessing all 22 frets, and two, hand-wound humbuckers for a truly never-felt-before playing experience. Each guitar features a unique hand-painted finish that will never be exactly replicated.",
+    specifications: {
       model: "Distiller",
-      finish: "Bourbon Burst",
-      price: "$3,499",
-      features: "90% Hand-crafted Components",
-      description: "Our flagship model, the Distiller is a combination of skillfully hand-crafted unique design innovations, paired with the creature comforts and familiarities of our favorite player guitars. Built at our build-barn in Massachusetts, USA, the Distiller fuses an intricate, custom-designed bridge for granular, tool-less action and intonation, a streamlined 'c-shape' neck for comfort and stability while accessing all 22 frets, and two, hand-wound humbuckers for a truly never-felt-before playing experience.",
-      specifications: {
-        model: "Distiller",
-        finish: "Bourbon Burst",
-        neck: "Streamlined C-shape",
-        frets: "22 Frets",
-        bridge: "Custom-designed tool-less bridge",
-        pickups: "Two hand-wound humbuckers",
-        components: "90% hand-crafted in-house",
-        build_location: "Massachusetts, USA"
-      },
-      images: ["DewarGuitars_1.webp", "DewarGuitars_2.webp", "DewarGuitars_3.webp"],
-      shipping: "Free shipping in the continental United States",
-      returns: "Contact info@dewarguitars.com for returns inquiries"
+      finish: "Hand-painted (Unique to each guitar)",
+      neck: "Streamlined C-shape",
+      frets: "22 Frets",
+      bridge: "Custom-designed tool-less bridge",
+      pickups: "Two hand-wound humbuckers",
+      components: "90% hand-crafted in-house",
+      build_location: "Massachusetts, USA"
     },
-    2: {
-      name: "Distiller - Natural",
-      status: "Available", 
-      model: "Distiller",
-      finish: "Natural",
-      price: "$3,499",
-      features: "90% Hand-crafted Components",
-      description: "Our flagship model, the Distiller is a combination of skillfully hand-crafted unique design innovations, paired with the creature comforts and familiarities of our favorite player guitars. Built at our build-barn in Massachusetts, USA, the Distiller fuses an intricate, custom-designed bridge for granular, tool-less action and intonation, a streamlined 'c-shape' neck for comfort and stability while accessing all 22 frets, and two, hand-wound humbuckers for a truly never-felt-before playing experience.",
-      specifications: {
-        model: "Distiller",
-        finish: "Natural",
-        neck: "Streamlined C-shape",
-        frets: "22 Frets",
-        bridge: "Custom-designed tool-less bridge",
-        pickups: "Two hand-wound humbuckers",
-        components: "90% hand-crafted in-house",
-        build_location: "Massachusetts, USA"
-      },
-      images: ["DewarGuitars_2.webp", "DewarGuitars_3.webp", "DewarGuitars_4.webp"],
-      shipping: "Free shipping in the continental United States",
-      returns: "Contact info@dewarguitars.com for returns inquiries"
-    },
-    3: {
-      name: "Distiller - Tobacco Burst",
-      status: "Available",
-      model: "Distiller", 
-      finish: "Tobacco Burst",
-      price: "$3,499",
-      features: "90% Hand-crafted Components",
-      description: "Our flagship model, the Distiller is a combination of skillfully hand-crafted unique design innovations, paired with the creature comforts and familiarities of our favorite player guitars. Built at our build-barn in Massachusetts, USA, the Distiller fuses an intricate, custom-designed bridge for granular, tool-less action and intonation, a streamlined 'c-shape' neck for comfort and stability while accessing all 22 frets, and two, hand-wound humbuckers for a truly never-felt-before playing experience.",
-      specifications: {
-        model: "Distiller",
-        finish: "Tobacco Burst",
-        neck: "Streamlined C-shape",
-        frets: "22 Frets",
-        bridge: "Custom-designed tool-less bridge",
-        pickups: "Two hand-wound humbuckers",
-        components: "90% hand-crafted in-house",
-        build_location: "Massachusetts, USA"
-      },
-      images: ["DewarGuitars_3.webp", "DewarGuitars_4.webp", "DewarGuitars_5.webp"],
-      shipping: "Free shipping in the continental United States",
-      returns: "Contact info@dewarguitars.com for returns inquiries"
-    }
+    images: ["DewarGuitars_1.webp", "DewarGuitars_2.webp", "DewarGuitars_3.webp", "DewarGuitars_4.webp", "DewarGuitars_5.webp"],
+    shipping: "Free shipping in the continental United States",
+    returns: "Contact info@dewarguitars.com for returns inquiries"
   }
 
-  const guitar = guitarData[guitarId as keyof typeof guitarData]
-
-  if (!guitar) {
-    return (
-      <main className="min-h-screen bg-black text-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-light mb-4">Guitar Not Found</h1>
-          <Link href="/" className="text-white/60 hover:text-white transition-colors">
-            Return to Collection
-          </Link>
-        </div>
-      </main>
-    )
-  }
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -150,11 +88,6 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
                 images={guitar.images} 
                 guitarName={guitar.name}
               />
-              {guitar.status === "Owned" && (
-                <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-red-900/90 backdrop-blur-sm text-white px-3 py-1 sm:px-4 sm:py-2 text-xs font-medium tracking-[0.1em] uppercase border border-red-800/50 z-10">
-                  {guitar.status}
-                </div>
-              )}
             </div>
 
             {/* Product Details */}
