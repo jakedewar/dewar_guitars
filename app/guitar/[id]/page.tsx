@@ -359,7 +359,7 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
                 <div className="absolute inset-0 bg-black/20"></div>
               </div>
               <h3 className="text-lg sm:text-xl md:text-2xl font-light">Passion-Driven Craft</h3>
-              <p className="text-xs sm:text-sm md:text-base text-white/70 font-light leading-relaxed max-w-sm mx-auto px-2">
+              <p className="text-sm sm:text-base md:text-lg text-white/70 font-light leading-relaxed max-w-sm mx-auto px-2">
                 Each Distiller is born from a decade of uncompromising dedication to the art of guitar making. This isn&apos;t just manufacturing—it&apos;s artistry.
               </p>
             </div>
@@ -375,7 +375,7 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
                 <div className="absolute inset-0 bg-black/20"></div>
               </div>
               <h3 className="text-lg sm:text-xl md:text-2xl font-light">Uncompromising Quality</h3>
-              <p className="text-xs sm:text-sm md:text-base text-white/70 font-light leading-relaxed max-w-sm mx-auto px-2">
+              <p className="text-sm sm:text-base md:text-lg text-white/70 font-light leading-relaxed max-w-sm mx-auto px-2">
                 With 90% hand-crafted components and meticulous attention to every detail, the Distiller represents the pinnacle of guitar craftsmanship.
               </p>
             </div>
@@ -391,7 +391,7 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
                 <div className="absolute inset-0 bg-black/20"></div>
               </div>
               <h3 className="text-lg sm:text-xl md:text-2xl font-light">Innovation Meets Tradition</h3>
-              <p className="text-xs sm:text-sm md:text-base text-white/70 font-light leading-relaxed max-w-sm mx-auto px-2">
+              <p className="text-sm sm:text-base md:text-lg text-white/70 font-light leading-relaxed max-w-sm mx-auto px-2">
                 Revolutionary features like our tool-less bridge system combined with time-honored techniques create an instrument that&apos;s both cutting-edge and timeless.
               </p>
             </div>
