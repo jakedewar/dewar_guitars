@@ -1,0 +1,417 @@
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import Image from "next/image"
+import MobileNavigation from "@/components/MobileNavigation"
+import CustomImageGallery from "@/components/ImageGallery"
+
+interface GuitarPageProps {
+  params: Promise<{
+    id: string
+  }>
+}
+
+export default async function GuitarPage({ params }: GuitarPageProps) {
+  const { id } = await params
+  const guitarId = parseInt(id)
+  
+  // Guitar data based on actual Dewar Guitars website
+  const guitarData = {
+    1: {
+      name: "Distiller - Bourbon Burst",
+      status: "Available",
+      model: "Distiller",
+      finish: "Bourbon Burst",
+      price: "$3,499",
+      features: "90% Hand-crafted Components",
+      description: "Our flagship model, the Distiller is a combination of skillfully hand-crafted unique design innovations, paired with the creature comforts and familiarities of our favorite player guitars. Built at our build-barn in Massachusetts, USA, the Distiller fuses an intricate, custom-designed bridge for granular, tool-less action and intonation, a streamlined 'c-shape' neck for comfort and stability while accessing all 22 frets, and two, hand-wound humbuckers for a truly never-felt-before playing experience.",
+      specifications: {
+        model: "Distiller",
+        finish: "Bourbon Burst",
+        neck: "Streamlined C-shape",
+        frets: "22 Frets",
+        bridge: "Custom-designed tool-less bridge",
+        pickups: "Two hand-wound humbuckers",
+        components: "90% hand-crafted in-house",
+        build_location: "Massachusetts, USA"
+      },
+      images: ["DewarGuitars_1.webp", "DewarGuitars_2.webp", "DewarGuitars_3.webp"],
+      shipping: "Free shipping in the continental United States",
+      returns: "Contact info@dewarguitars.com for returns inquiries"
+    },
+    2: {
+      name: "Distiller - Natural",
+      status: "Available", 
+      model: "Distiller",
+      finish: "Natural",
+      price: "$3,499",
+      features: "90% Hand-crafted Components",
+      description: "Our flagship model, the Distiller is a combination of skillfully hand-crafted unique design innovations, paired with the creature comforts and familiarities of our favorite player guitars. Built at our build-barn in Massachusetts, USA, the Distiller fuses an intricate, custom-designed bridge for granular, tool-less action and intonation, a streamlined 'c-shape' neck for comfort and stability while accessing all 22 frets, and two, hand-wound humbuckers for a truly never-felt-before playing experience.",
+      specifications: {
+        model: "Distiller",
+        finish: "Natural",
+        neck: "Streamlined C-shape",
+        frets: "22 Frets",
+        bridge: "Custom-designed tool-less bridge",
+        pickups: "Two hand-wound humbuckers",
+        components: "90% hand-crafted in-house",
+        build_location: "Massachusetts, USA"
+      },
+      images: ["DewarGuitars_2.webp", "DewarGuitars_3.webp", "DewarGuitars_4.webp"],
+      shipping: "Free shipping in the continental United States",
+      returns: "Contact info@dewarguitars.com for returns inquiries"
+    },
+    3: {
+      name: "Distiller - Tobacco Burst",
+      status: "Available",
+      model: "Distiller", 
+      finish: "Tobacco Burst",
+      price: "$3,499",
+      features: "90% Hand-crafted Components",
+      description: "Our flagship model, the Distiller is a combination of skillfully hand-crafted unique design innovations, paired with the creature comforts and familiarities of our favorite player guitars. Built at our build-barn in Massachusetts, USA, the Distiller fuses an intricate, custom-designed bridge for granular, tool-less action and intonation, a streamlined 'c-shape' neck for comfort and stability while accessing all 22 frets, and two, hand-wound humbuckers for a truly never-felt-before playing experience.",
+      specifications: {
+        model: "Distiller",
+        finish: "Tobacco Burst",
+        neck: "Streamlined C-shape",
+        frets: "22 Frets",
+        bridge: "Custom-designed tool-less bridge",
+        pickups: "Two hand-wound humbuckers",
+        components: "90% hand-crafted in-house",
+        build_location: "Massachusetts, USA"
+      },
+      images: ["DewarGuitars_3.webp", "DewarGuitars_4.webp", "DewarGuitars_5.webp"],
+      shipping: "Free shipping in the continental United States",
+      returns: "Contact info@dewarguitars.com for returns inquiries"
+    }
+  }
+
+  const guitar = guitarData[guitarId as keyof typeof guitarData]
+
+  if (!guitar) {
+    return (
+      <main className="min-h-screen bg-black text-white flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-light mb-4">Guitar Not Found</h1>
+          <Link href="/" className="text-white/60 hover:text-white transition-colors">
+            Return to Collection
+          </Link>
+        </div>
+      </main>
+    )
+  }
+
+  return (
+    <main className="min-h-screen bg-black text-white">
+      {/* Header Navigation */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-white/10">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-3 sm:py-5">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/images/64ff64d81643c4f37964cac8_Dewar v2b PNG.png"
+                alt="Dewar Guitars"
+                width={200}
+                height={60}
+                className="h-10 sm:h-12 w-auto opacity-95"
+                priority
+              />
+            </Link>
+            
+            <nav className="hidden lg:flex items-center space-x-12">
+              <Link href="/#story" className="text-white/80 hover:text-white transition-all duration-500 font-light tracking-[0.1em] text-sm uppercase relative group">
+                Story
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-500 group-hover:w-full"></span>
+              </Link>
+              <Link href="/#collection" className="text-white/80 hover:text-white transition-all duration-500 font-light tracking-[0.1em] text-sm uppercase relative group">
+                Collection
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-500 group-hover:w-full"></span>
+              </Link>
+              <Link href="/#craftsmanship" className="text-white/80 hover:text-white transition-all duration-500 font-light tracking-[0.1em] text-sm uppercase relative group">
+                Craftsmanship
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-500 group-hover:w-full"></span>
+              </Link>
+              <Link href="/#apply" className="text-white/80 hover:text-white transition-all duration-500 font-light tracking-[0.1em] text-sm uppercase relative group">
+                Apply
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-500 group-hover:w-full"></span>
+              </Link>
+            </nav>
+            
+            <MobileNavigation />
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="pt-24 sm:pt-32 pb-8 sm:pb-16 bg-black">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
+            {/* Image Gallery - Sticky */}
+            <div className="lg:sticky lg:top-20">
+              <CustomImageGallery 
+                images={guitar.images} 
+                guitarName={guitar.name}
+              />
+              {guitar.status === "Owned" && (
+                <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-red-900/90 backdrop-blur-sm text-white px-3 py-1 sm:px-4 sm:py-2 text-xs font-medium tracking-[0.1em] uppercase border border-red-800/50 z-10">
+                  {guitar.status}
+                </div>
+              )}
+            </div>
+
+            {/* Product Details */}
+            <div className="space-y-6 sm:space-y-8">
+              <div>
+                <div className="text-xs sm:text-sm text-white/40 tracking-[0.3em] uppercase mb-3 sm:mb-4">The Distiller Collection</div>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-thin tracking-wide mb-3 sm:mb-4">
+                  {guitar.name}
+                </h1>
+                <div className="w-16 sm:w-24 h-px bg-white/60 mb-4 sm:mb-6"></div>
+                
+                {/* Price */}
+                <div className="mb-6 sm:mb-8">
+                  <div className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide text-white mb-2">
+                    {guitar.price}
+                  </div>
+                  <div className="text-xs sm:text-sm text-white/50 tracking-[0.2em] uppercase">
+                    Handcrafted Investment
+                  </div>
+                </div>
+                
+                <p className="text-lg sm:text-xl text-white/80 font-light leading-relaxed mb-4 sm:mb-6">
+                  {guitar.description}
+                </p>
+              </div>
+
+              {/* Key Features */}
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white/60 rounded-full flex-shrink-0"></div>
+                  <span className="text-sm sm:text-base text-white/70 font-light">{guitar.finish} Finish</span>
+                </div>
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white/60 rounded-full flex-shrink-0"></div>
+                  <span className="text-sm sm:text-base text-white/70 font-light">Custom Tool-less Bridge</span>
+                </div>
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white/60 rounded-full flex-shrink-0"></div>
+                  <span className="text-sm sm:text-base text-white/70 font-light">{guitar.features}</span>
+                </div>
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white/60 rounded-full flex-shrink-0"></div>
+                  <span className="text-sm sm:text-base text-white/70 font-light">Hand-wound Humbuckers</span>
+                </div>
+              </div>
+
+              {/* Specifications */}
+              <div className="pt-8 sm:pt-12 border-t border-white/10">
+                <div className="mb-6 sm:mb-8">
+                  <h3 className="text-xl sm:text-2xl font-light tracking-wide mb-2 uppercase">Specifications</h3>
+                  <div className="w-12 sm:w-16 h-px bg-white/40"></div>
+                </div>
+                
+                <div className="space-y-4 sm:space-y-6">
+                  {/* Primary Specifications */}
+                  <div className="space-y-3 sm:space-y-4">
+                    <h4 className="text-xs sm:text-sm text-white/50 tracking-[0.2em] uppercase">Model Details</h4>
+                    <div className="grid grid-cols-1 gap-2 sm:gap-3">
+                      <div className="flex justify-between items-center py-2 border-b border-white/5">
+                        <span className="text-sm sm:text-base text-white/70 font-light">Model</span>
+                        <span className="text-sm sm:text-base text-white/90 font-light">{guitar.specifications.model}</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-white/5">
+                        <span className="text-sm sm:text-base text-white/70 font-light">Finish</span>
+                        <span className="text-sm sm:text-base text-white/90 font-light">{guitar.specifications.finish}</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-white/5">
+                        <span className="text-sm sm:text-base text-white/70 font-light">Neck Profile</span>
+                        <span className="text-sm sm:text-base text-white/90 font-light">{guitar.specifications.neck}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Technical Specifications */}
+                  <div className="space-y-3 sm:space-y-4">
+                    <h4 className="text-xs sm:text-sm text-white/50 tracking-[0.2em] uppercase">Technical</h4>
+                    <div className="grid grid-cols-1 gap-2 sm:gap-3">
+                      <div className="flex justify-between items-center py-2 border-b border-white/5">
+                        <span className="text-sm sm:text-base text-white/70 font-light">Frets</span>
+                        <span className="text-sm sm:text-base text-white/90 font-light">{guitar.specifications.frets}</span>
+                      </div>
+                      <div className="flex justify-between items-start py-2 border-b border-white/5">
+                        <span className="text-sm sm:text-base text-white/70 font-light">Bridge</span>
+                        <span className="text-sm sm:text-base text-white/90 font-light text-right max-w-xs ml-4">{guitar.specifications.bridge}</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-white/5">
+                        <span className="text-sm sm:text-base text-white/70 font-light">Pickups</span>
+                        <span className="text-sm sm:text-base text-white/90 font-light">{guitar.specifications.pickups}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Craftsmanship Details */}
+                  <div className="space-y-3 sm:space-y-4">
+                    <h4 className="text-xs sm:text-sm text-white/50 tracking-[0.2em] uppercase">Craftsmanship</h4>
+                    <div className="grid grid-cols-1 gap-2 sm:gap-3">
+                      <div className="flex justify-between items-start py-2 border-b border-white/5">
+                        <span className="text-sm sm:text-base text-white/70 font-light">Components</span>
+                        <span className="text-sm sm:text-base text-white/90 font-light text-right max-w-xs ml-4">{guitar.specifications.components}</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2">
+                        <span className="text-sm sm:text-base text-white/70 font-light">Build Location</span>
+                        <span className="text-sm sm:text-base text-white/90 font-light">{guitar.specifications.build_location}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="pt-6 sm:pt-8 space-y-4 sm:space-y-6">
+                <Button 
+                  size="lg" 
+                  className="w-full bg-transparent border-2 border-white/60 text-white hover:bg-white hover:text-black text-base sm:text-lg py-3 sm:py-4 rounded-none font-light tracking-[0.1em] transition-all duration-500 hover:border-white touch-manipulation active:scale-95"
+                >
+                  Contact Sales
+                </Button>
+                
+                <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
+                  <div className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="w-1 h-1 bg-white/60 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-white/60 font-light leading-relaxed">{guitar.shipping}</span>
+                  </div>
+                  <div className="flex items-start space-x-2 sm:space-x-3">
+                    <div className="w-1 h-1 bg-white/60 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-white/60 font-light leading-relaxed">{guitar.returns}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Craftsmanship Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white text-black">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-thin tracking-wide mb-6 sm:mb-8">
+              Where Tone Meets Power
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 font-light max-w-3xl mx-auto leading-relaxed">
+              Built at our build-barn in Massachusetts, USA, the Distiller fuses unique design innovations with the creature comforts of our favorite player guitars.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+            <div className="text-center space-y-3 sm:space-y-4">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                </svg>
+              </div>
+              <h3 className="text-lg sm:text-xl font-light">Custom Bridge</h3>
+              <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">Intricate, custom-designed bridge for granular, tool-less action and intonation.</p>
+            </div>
+            
+            <div className="text-center space-y-3 sm:space-y-4">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+                </svg>
+              </div>
+              <h3 className="text-lg sm:text-xl font-light">Streamlined Neck</h3>
+              <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">C-shape neck for comfort and stability while accessing all 22 frets.</p>
+            </div>
+            
+            <div className="text-center space-y-3 sm:space-y-4">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+              <h3 className="text-lg sm:text-xl font-light">Hand-wound Pickups</h3>
+              <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">Two hand-wound humbuckers for a truly never-felt-before playing experience.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-black border-t border-white/5">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12 items-start">
+            <div className="space-y-4 sm:space-y-6">
+              <Image
+                src="/images/64ff64d81643c4f37964cac8_Dewar v2b PNG.png"
+                alt="Dewar Guitars"
+                width={200}
+                height={60}
+                className="h-12 sm:h-16 w-auto opacity-90"
+              />
+              <div className="space-y-2 sm:space-y-3">
+                <p className="text-sm sm:text-base text-white/60 font-light leading-relaxed max-w-sm">
+                  Handcrafted in Massachusetts. Only 12 guitars per year. Each instrument represents a decade of uncompromising craftsmanship.
+                </p>
+                <div className="text-xs text-white/40 tracking-[0.2em] uppercase">
+                  Limited Edition • Artisanal Craftsmanship
+                </div>
+              </div>
+            </div>
+            
+            <div className="space-y-4 sm:space-y-6">
+              <h3 className="text-white font-light tracking-[0.1em] text-sm uppercase">Contact</h3>
+              <div className="space-y-3 sm:space-y-4">
+                <a 
+                  href="mailto:info@dewarguitars.com" 
+                  className="block text-sm sm:text-base text-white/60 hover:text-white transition-colors duration-300 font-light tracking-wide touch-manipulation"
+                >
+                  info@dewarguitars.com
+                </a>
+                <div className="text-sm sm:text-base text-white/60 font-light tracking-wide">
+                  Massachusetts, USA
+                </div>
+              </div>
+            </div>
+            
+            <div className="space-y-4 sm:space-y-6">
+              <h3 className="text-white font-light tracking-[0.1em] text-sm uppercase">Follow</h3>
+              <div className="flex space-x-6 sm:space-x-8">
+                <a 
+                  href="#" 
+                  className="text-sm sm:text-base text-white/60 hover:text-white transition-colors duration-300 font-light tracking-wide touch-manipulation"
+                >
+                  Instagram
+                </a>
+                <a 
+                  href="#" 
+                  className="text-sm sm:text-base text-white/60 hover:text-white transition-colors duration-300 font-light tracking-wide touch-manipulation"
+                >
+                  YouTube
+                </a>
+              </div>
+              
+              <div className="pt-2 sm:pt-4">
+                <Link 
+                  href="/#apply" 
+                  className="inline-block border border-white/20 text-white/80 hover:border-white/40 hover:text-white transition-all duration-500 font-light tracking-[0.05em] text-xs sm:text-sm uppercase px-4 sm:px-6 py-2 sm:py-3 touch-manipulation active:scale-95"
+                >
+                  Apply for 2025
+                </Link>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-white/5">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-3 sm:space-y-4 md:space-y-0">
+              <div className="text-xs text-white/30 tracking-[0.2em] uppercase text-center md:text-left">
+                © 2024 Dewar Guitars • All Rights Reserved
+              </div>
+              <div className="text-xs text-white/30 tracking-[0.2em] uppercase text-center md:text-right">
+                Handcrafted in Massachusetts
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+  )
+}
