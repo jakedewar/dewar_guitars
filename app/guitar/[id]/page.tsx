@@ -360,7 +360,7 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
               </div>
               <h3 className="text-lg sm:text-xl md:text-2xl font-light">Passion-Driven Craft</h3>
               <p className="text-xs sm:text-sm md:text-base text-white/70 font-light leading-relaxed max-w-sm mx-auto px-2">
-                Each Distiller is born from a decade of uncompromising dedication to the art of guitar making. This isn't just manufacturing—it's artistry.
+                Each Distiller is born from a decade of uncompromising dedication to the art of guitar making. This isn&apos;t just manufacturing—it&apos;s artistry.
               </p>
             </div>
             
@@ -392,7 +392,7 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
               </div>
               <h3 className="text-lg sm:text-xl md:text-2xl font-light">Innovation Meets Tradition</h3>
               <p className="text-xs sm:text-sm md:text-base text-white/70 font-light leading-relaxed max-w-sm mx-auto px-2">
-                Revolutionary features like our tool-less bridge system combined with time-honored techniques create an instrument that's both cutting-edge and timeless.
+                Revolutionary features like our tool-less bridge system combined with time-honored techniques create an instrument that&apos;s both cutting-edge and timeless.
               </p>
             </div>
           </div>
@@ -403,7 +403,7 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
                 Limited to 12 Guitars Per Year
               </h3>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/80 font-light leading-relaxed mb-4 sm:mb-6 md:mb-8 px-2">
-                Each Distiller is a rare masterpiece. When you own one, you're not just buying a guitar—you're joining an exclusive community of artists who demand nothing less than perfection.
+                Each Distiller is a rare masterpiece. When you own one, you&apos;re not just buying a guitar—you&apos;re joining an exclusive community of artists who demand nothing less than perfection.
               </p>
               <div className="text-xs sm:text-sm text-white/60 tracking-[0.2em] uppercase">
                 Exclusivity • Artistry • Legacy
