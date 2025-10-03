@@ -288,7 +288,7 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
                   src="/images/DewarGuitars_1.webp"
                   alt="Hand-crafted guitar detail"
                   fill
-                  className="object-cover opacity-80"
+                  className="object-contain opacity-80"
                 />
                 <div className="absolute inset-0 bg-black/20"></div>
               </div>
@@ -304,7 +304,7 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
                   src="/images/DewarGuitars_2.webp"
                   alt="Custom bridge detail"
                   fill
-                  className="object-cover opacity-80"
+                  className="object-contain opacity-80"
                 />
                 <div className="absolute inset-0 bg-black/20"></div>
               </div>
@@ -320,7 +320,7 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
                   src="/images/DewarGuitars_3.webp"
                   alt="Innovation meets tradition"
                   fill
-                  className="object-cover opacity-80"
+                  className="object-contain opacity-80"
                 />
                 <div className="absolute inset-0 bg-black/20"></div>
               </div>

@@ -136,7 +136,7 @@ export default function StoryCarousel() {
         <CarouselContent>
           {storySections.map((story, index) => (
             <CarouselItem key={story.id}>
-              <div className={`py-16 sm:py-20 lg:py-24 transition-all duration-1000 ${
+              <div className={`py-8 sm:py-16 md:py-20 lg:py-24 transition-all duration-1000 ${
                 story.theme === "light" ? "bg-white text-black" : "bg-black text-white"
               }`}>
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
@@ -177,12 +177,12 @@ export default function StoryCarousel() {
                     
                     {/* Image */}
                     <div className="relative group order-1 lg:order-2">
-                      <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
+                      <div className="relative h-[320px] sm:h-[420px] md:h-[520px] lg:h-[650px] overflow-hidden">
                         <Image
                           src={story.image}
                           alt={story.imageAlt}
                           fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          className="object-contain transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className={`absolute inset-0 transition-colors duration-500 ${
                           story.theme === "light" 
@@ -203,7 +203,7 @@ export default function StoryCarousel() {
         </CarouselContent>
 
         {/* Custom Navigation Controls */}
-        <div className="flex justify-center items-center py-8 sm:py-12">
+        <div className="flex justify-center items-center py-4 sm:py-8 md:py-12">
           <div className="flex items-center space-x-3 sm:space-x-6">
             {/* Previous Button */}
             <CarouselPrevious 
