@@ -73,7 +73,7 @@ export default function Home() {
                 alt="Dewar Guitars"
                 width={600}
                 height={180}
-                className="h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64 w-auto mx-auto opacity-95 drop-shadow-2xl luxury-text-shadow"
+                className="h-40 sm:h-52 md:h-64 lg:h-80 xl:h-96 w-auto mx-auto opacity-95 drop-shadow-2xl luxury-text-shadow"
                 priority
               />
             </div>
