@@ -194,7 +194,7 @@ export default function Home() {
                     {/* Pricing */}
                     <div className="mb-6">
                       <div className="text-2xl lg:text-3xl font-light tracking-wide text-white mb-1">
-                        $3,499
+                        $2,499
                       </div>
                     </div>
                   </div>
