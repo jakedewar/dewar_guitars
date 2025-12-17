@@ -23,19 +23,19 @@ export default function Home() {
             </Link>
             
             <nav className="hidden lg:flex items-center space-x-12">
-              <Link href="/#story" className="text-white/80 hover:text-white transition-all duration-500 font-light tracking-[0.1em] text-sm uppercase relative group">
+              <Link href="/#story" className="text-white/90 hover:text-white transition-all duration-500 font-normal tracking-[0.1em] text-sm uppercase relative group focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2">
                 Story
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-500 group-hover:w-full"></span>
               </Link>
-              <Link href="/#collection" className="text-white/80 hover:text-white transition-all duration-500 font-light tracking-[0.1em] text-sm uppercase relative group">
+              <Link href="/#collection" className="text-white/90 hover:text-white transition-all duration-500 font-normal tracking-[0.1em] text-sm uppercase relative group focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2">
                 Collection
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-500 group-hover:w-full"></span>
               </Link>
-              <Link href="/#craftsmanship" className="text-white/80 hover:text-white transition-all duration-500 font-light tracking-[0.1em] text-sm uppercase relative group">
+              <Link href="/#craftsmanship" className="text-white/90 hover:text-white transition-all duration-500 font-normal tracking-[0.1em] text-sm uppercase relative group focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2">
                 Craftsmanship
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-500 group-hover:w-full"></span>
               </Link>
-              <Link href="/#apply" className="text-white/80 hover:text-white transition-all duration-500 font-light tracking-[0.1em] text-sm uppercase relative group">
+              <Link href="/#apply" className="text-white/90 hover:text-white transition-all duration-500 font-normal tracking-[0.1em] text-sm uppercase relative group focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2">
                 Apply
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-500 group-hover:w-full"></span>
               </Link>
@@ -79,9 +79,9 @@ export default function Home() {
               />
             </div>
             <div className="w-16 sm:w-24 h-px bg-white/70 mx-auto mb-6 sm:mb-8"></div>
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-relaxed text-white/95 max-w-5xl mx-auto drop-shadow-lg luxury-text-shadow hero-text-reveal">
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal tracking-wide leading-relaxed text-white max-w-5xl mx-auto drop-shadow-lg luxury-text-shadow hero-text-reveal">
               Only 12 guitars per year.<br />
-              <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/80">Each instrument a unique masterpiece, handcrafted by one artisan from raw wood to final note.</span>
+              <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90">Each instrument a unique masterpiece, handcrafted by one artisan from raw wood to final note.</span>
             </p>
           </div>
           
@@ -93,7 +93,7 @@ export default function Home() {
               <span className="relative z-10">Apply for the 2025 Collection</span>
               <div className="absolute inset-0 bg-white/5 scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
             </Button>
-            <div className="text-xs sm:text-sm text-white/60 tracking-[0.2em] uppercase">
+            <div className="text-xs sm:text-sm text-white/85 tracking-[0.2em] uppercase">
               Limited Edition • Handcrafted in Massachusetts
             </div>
           </div>
@@ -123,12 +123,12 @@ export default function Home() {
         
         <div className="container mx-auto px-6 md:px-8 lg:px-12 relative z-10">
           <div className="text-center mb-20">
-            <div className="text-sm text-white/40 tracking-[0.3em] uppercase mb-6">The Distiller Collection</div>
-            <h2 className="text-6xl md:text-7xl font-thin tracking-wide mb-6">
+            <div className="text-sm text-white/75 tracking-[0.3em] uppercase mb-6">The Distiller Collection</div>
+            <h2 className="text-6xl md:text-7xl font-light tracking-wide mb-6 leading-tight">
               2025
             </h2>
-            <div className="w-32 h-px bg-white/30 mx-auto mb-8"></div>
-            <p className="text-2xl text-white/60 font-light tracking-wide mb-4">
+            <div className="w-32 h-px bg-white/50 mx-auto mb-8"></div>
+            <p className="text-2xl text-white/90 font-normal tracking-wide mb-4 leading-relaxed">
               Only 12 will be built this year
             </p>
           </div>
@@ -149,12 +149,12 @@ export default function Home() {
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
                   
                   {/* Collection Badge */}
-                  <div className="absolute top-6 right-6 bg-white/10 backdrop-blur-sm text-white px-4 py-2 text-xs font-medium tracking-[0.1em] uppercase border border-white/20">
+                  <div className="absolute top-6 right-6 bg-white/15 backdrop-blur-sm text-white px-4 py-2 text-xs font-medium tracking-[0.1em] uppercase border border-white/30">
                     Limited Edition
                   </div>
                   
                   {/* Collection Number */}
-                  <div className="absolute bottom-6 left-6 text-6xl font-thin text-white/20 group-hover:text-white/40 transition-colors duration-500">
+                  <div className="absolute bottom-6 left-6 text-6xl font-light text-white/30 group-hover:text-white/50 transition-colors duration-500">
                     2025
                   </div>
                 </div>
@@ -162,38 +162,38 @@ export default function Home() {
                 {/* Content Section */}
                 <div className="p-8 lg:p-12 space-y-6 flex flex-col justify-center">
                   <div>
-                    <h3 className="text-3xl lg:text-4xl font-light mb-4 tracking-wide">The Distiller</h3>
-                    <p className="text-white/60 text-base lg:text-lg font-light leading-relaxed mb-6">
+                    <h3 className="text-3xl lg:text-4xl font-normal mb-4 tracking-wide leading-tight">The Distiller</h3>
+                    <p className="text-white/90 text-base lg:text-lg font-normal leading-relaxed mb-6">
                       Each guitar is a unique masterpiece with hand-painted finishes that will never be exactly replicated.
                     </p>
                     
                     {/* Key Features */}
                     <div className="space-y-3 mb-6">
                       <div className="flex items-center space-x-3">
-                        <div className="w-1.5 h-1.5 bg-white/60 rounded-full flex-shrink-0"></div>
-                        <span className="text-sm text-white/70 font-light">Custom Tool-less Bridge</span>
+                        <div className="w-1.5 h-1.5 bg-white/80 rounded-full flex-shrink-0"></div>
+                        <span className="text-sm text-white/90 font-normal">Custom Tool-less Bridge</span>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <div className="w-1.5 h-1.5 bg-white/60 rounded-full flex-shrink-0"></div>
-                        <span className="text-sm text-white/70 font-light">Hand-wound Humbuckers</span>
+                        <div className="w-1.5 h-1.5 bg-white/80 rounded-full flex-shrink-0"></div>
+                        <span className="text-sm text-white/90 font-normal">Hand-wound Humbuckers</span>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <div className="w-1.5 h-1.5 bg-white/60 rounded-full flex-shrink-0"></div>
-                        <span className="text-sm text-white/70 font-light">Streamlined C-shape Neck</span>
+                        <div className="w-1.5 h-1.5 bg-white/80 rounded-full flex-shrink-0"></div>
+                        <span className="text-sm text-white/90 font-normal">Streamlined C-shape Neck</span>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <div className="w-1.5 h-1.5 bg-white/60 rounded-full flex-shrink-0"></div>
-                        <span className="text-sm text-white/70 font-light">90% Hand-crafted Components</span>
+                        <div className="w-1.5 h-1.5 bg-white/80 rounded-full flex-shrink-0"></div>
+                        <span className="text-sm text-white/90 font-normal">90% Hand-crafted Components</span>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <div className="w-1.5 h-1.5 bg-white/60 rounded-full flex-shrink-0"></div>
-                        <span className="text-sm text-white/70 font-light">Unique Hand-painted Finish</span>
+                        <div className="w-1.5 h-1.5 bg-white/80 rounded-full flex-shrink-0"></div>
+                        <span className="text-sm text-white/90 font-normal">Unique Hand-painted Finish</span>
                       </div>
                     </div>
                     
                     {/* Pricing */}
                     <div className="mb-6">
-                      <div className="text-2xl lg:text-3xl font-light tracking-wide text-white mb-1">
+                      <div className="text-2xl lg:text-3xl font-normal tracking-wide text-white mb-1 leading-tight">
                         $2,499
                       </div>
                     </div>
@@ -201,7 +201,7 @@ export default function Home() {
                   
                   <div className="pt-2">
                     <Link href="/guitar/distiller">
-                      <button className="w-full border border-white/30 text-white/90 hover:bg-white hover:text-black hover:border-white transition-all duration-700 font-light tracking-[0.1em] text-sm uppercase py-4 group relative overflow-hidden bg-transparent touch-manipulation active:scale-95">
+                      <button className="w-full border border-white/50 text-white hover:bg-white hover:text-black hover:border-white transition-all duration-700 font-normal tracking-[0.1em] text-sm uppercase py-4 group relative overflow-hidden bg-transparent touch-manipulation active:scale-95 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2">
                         <span className="relative z-10">View Details</span>
                         <div className="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
                       </button>
@@ -225,13 +225,13 @@ export default function Home() {
         
         <div className="container mx-auto px-6 md:px-8 lg:px-12 relative z-10">
           <div className="text-center mb-20">
-            <div className="text-sm text-gray-500 tracking-[0.3em] uppercase mb-6">Craftsmanship</div>
-            <h2 className="text-6xl md:text-7xl font-thin tracking-wide mb-8 leading-tight">
+            <div className="text-sm text-gray-600 tracking-[0.3em] uppercase mb-6">Craftsmanship</div>
+            <h2 className="text-6xl md:text-7xl font-light tracking-wide mb-8 leading-tight">
               Every Detail<br />
-              <span className="text-gray-600">Hand-Shaped</span>
+              <span className="text-gray-800">Hand-Shaped</span>
             </h2>
-            <div className="w-32 h-px bg-gray-300 mx-auto mb-12"></div>
-            <p className="text-2xl max-w-4xl mx-auto leading-relaxed text-gray-700 font-light">
+            <div className="w-32 h-px bg-gray-400 mx-auto mb-12"></div>
+            <p className="text-2xl max-w-4xl mx-auto leading-relaxed text-gray-800 font-normal">
               Most builders buy parts. Master luthier Jim Dewar machines his own. Every fret, every bridge, every curve is hand-shaped in his Massachusetts workshop.
             </p>
           </div>
@@ -245,8 +245,8 @@ export default function Home() {
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500"></div>
-              <div className="absolute bottom-6 left-6 text-white/90">
-                <div className="text-sm font-light tracking-[0.1em] uppercase">Detail Work</div>
+              <div className="absolute bottom-6 left-6 text-white">
+                <div className="text-sm font-normal tracking-[0.1em] uppercase drop-shadow-lg">Detail Work</div>
               </div>
             </div>
             
@@ -258,8 +258,8 @@ export default function Home() {
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500"></div>
-              <div className="absolute bottom-6 left-6 text-white/90">
-                <div className="text-sm font-light tracking-[0.1em] uppercase">Custom Hardware</div>
+              <div className="absolute bottom-6 left-6 text-white">
+                <div className="text-sm font-normal tracking-[0.1em] uppercase drop-shadow-lg">Custom Hardware</div>
               </div>
             </div>
             
@@ -271,8 +271,8 @@ export default function Home() {
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500"></div>
-              <div className="absolute bottom-6 left-6 text-white/90">
-                <div className="text-sm font-light tracking-[0.1em] uppercase">Finish Work</div>
+              <div className="absolute bottom-6 left-6 text-white">
+                <div className="text-sm font-normal tracking-[0.1em] uppercase drop-shadow-lg">Finish Work</div>
               </div>
             </div>
           </div>
@@ -290,13 +290,13 @@ export default function Home() {
         
         <div className="container mx-auto px-6 md:px-8 lg:px-12 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
-            <div className="text-sm text-white/40 tracking-[0.3em] uppercase mb-6">Reserve Your Position</div>
-            <h2 className="text-6xl md:text-7xl font-thin tracking-wide mb-8 leading-tight">
+            <div className="text-sm text-white/80 tracking-[0.3em] uppercase mb-6">Reserve Your Position</div>
+            <h2 className="text-6xl md:text-7xl font-light tracking-wide mb-8 leading-tight">
               Join the<br />
-              <span className="text-white/80">2025 Collection</span>
+              <span className="text-white/95">2025 Collection</span>
             </h2>
-            <div className="w-32 h-px bg-white/30 mx-auto mb-12"></div>
-            <p className="text-2xl text-white/60 mb-16 max-w-3xl mx-auto font-light leading-relaxed">
+            <div className="w-32 h-px bg-white/50 mx-auto mb-12"></div>
+            <p className="text-2xl text-white/90 mb-16 max-w-3xl mx-auto font-normal leading-relaxed">
               Only 12 will be built this year. Apply below to reserve your spot in the most exclusive guitar collection.
             </p>
           </div>
@@ -306,33 +306,33 @@ export default function Home() {
               <input
                 type="text"
                 placeholder="Your Name"
-                className="w-full px-6 sm:px-8 py-4 sm:py-6 bg-transparent border border-white/20 text-white placeholder-white/40 focus:border-white/60 focus:outline-none transition-all duration-500 font-light tracking-wide text-base sm:text-lg touch-manipulation"
+                className="w-full px-6 sm:px-8 py-4 sm:py-6 bg-transparent border border-white/40 text-white placeholder-white/60 focus:border-white focus:outline-2 focus:outline-white focus:outline-offset-2 transition-all duration-500 font-normal tracking-wide text-base sm:text-lg touch-manipulation"
                 autoComplete="name"
                 required
               />
               <input
                 type="email"
                 placeholder="Email Address"
-                className="w-full px-6 sm:px-8 py-4 sm:py-6 bg-transparent border border-white/20 text-white placeholder-white/40 focus:border-white/60 focus:outline-none transition-all duration-500 font-light tracking-wide text-base sm:text-lg touch-manipulation"
+                className="w-full px-6 sm:px-8 py-4 sm:py-6 bg-transparent border border-white/40 text-white placeholder-white/60 focus:border-white focus:outline-2 focus:outline-white focus:outline-offset-2 transition-all duration-500 font-normal tracking-wide text-base sm:text-lg touch-manipulation"
                 autoComplete="email"
                 required
               />
               <textarea
                 placeholder="Why do you want a Dewar Distiller?"
                 rows={4}
-                className="w-full px-6 sm:px-8 py-4 sm:py-6 bg-transparent border border-white/20 text-white placeholder-white/40 focus:border-white/60 focus:outline-none resize-none transition-all duration-500 font-light tracking-wide text-base sm:text-lg touch-manipulation"
+                className="w-full px-6 sm:px-8 py-4 sm:py-6 bg-transparent border border-white/40 text-white placeholder-white/60 focus:border-white focus:outline-2 focus:outline-white focus:outline-offset-2 resize-none transition-all duration-500 font-normal tracking-wide text-base sm:text-lg touch-manipulation"
                 required
               />
             </div>
             
             <Button 
               size="lg" 
-              className="w-full bg-transparent border-2 border-white/60 text-white hover:bg-white hover:text-black text-xl py-6 rounded-none font-light tracking-[0.1em] transition-all duration-500 hover:border-white"
+              className="w-full bg-transparent border-2 border-white/80 text-white hover:bg-white hover:text-black text-xl py-6 rounded-none font-normal tracking-[0.1em] transition-all duration-500 hover:border-white focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
             >
               Apply for 2025 Collection
             </Button>
             
-            <div className="text-xs text-white/30 tracking-[0.2em] uppercase pt-4">
+            <div className="text-xs text-white/70 tracking-[0.2em] uppercase pt-4">
               Limited to 12 positions • Handcrafted in Massachusetts
             </div>
           </form>
@@ -353,10 +353,10 @@ export default function Home() {
                 className="h-12 w-auto opacity-90"
               />
               <div className="space-y-3">
-                <p className="text-white/60 font-light leading-relaxed max-w-sm">
+                <p className="text-white/85 font-normal leading-relaxed max-w-sm">
                   Handcrafted by master luthier Jim Dewar in Massachusetts. Only 12 guitars per year. Each instrument represents a decade of uncompromising craftsmanship.
                 </p>
-                <div className="text-xs text-white/40 tracking-[0.2em] uppercase">
+                <div className="text-xs text-white/70 tracking-[0.2em] uppercase">
                   Limited Edition • Artisanal Craftsmanship
                 </div>
               </div>
@@ -364,15 +364,15 @@ export default function Home() {
             
             {/* Contact Section */}
             <div className="space-y-6">
-              <h3 className="text-white font-light tracking-[0.1em] text-sm uppercase">Contact</h3>
+              <h3 className="text-white font-normal tracking-[0.1em] text-sm uppercase">Contact</h3>
               <div className="space-y-4">
                 <a 
                   href="mailto:info@dewarguitars.com" 
-                  className="block text-white/60 hover:text-white transition-colors duration-300 font-light tracking-wide"
+                  className="block text-white/85 hover:text-white transition-colors duration-300 font-normal tracking-wide focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
                 >
                   info@dewarguitars.com
                 </a>
-                <div className="text-white/60 font-light tracking-wide">
+                <div className="text-white/85 font-normal tracking-wide">
                   Massachusetts, USA
                 </div>
               </div>
@@ -380,17 +380,17 @@ export default function Home() {
             
             {/* Social & Links Section */}
             <div className="space-y-6">
-              <h3 className="text-white font-light tracking-[0.1em] text-sm uppercase">Follow</h3>
+              <h3 className="text-white font-normal tracking-[0.1em] text-sm uppercase">Follow</h3>
               <div className="flex space-x-8">
                 <a 
                   href="#" 
-                  className="text-white/60 hover:text-white transition-colors duration-300 font-light tracking-wide text-sm"
+                  className="text-white/85 hover:text-white transition-colors duration-300 font-normal tracking-wide text-sm focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
                 >
                   Instagram
                 </a>
                 <a 
                   href="#" 
-                  className="text-white/60 hover:text-white transition-colors duration-300 font-light tracking-wide text-sm"
+                  className="text-white/85 hover:text-white transition-colors duration-300 font-normal tracking-wide text-sm focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
                 >
                   YouTube
                 </a>
@@ -399,7 +399,7 @@ export default function Home() {
               <div className="pt-4">
                 <a 
                   href="#apply" 
-                  className="inline-block border border-white/20 text-white/80 hover:border-white/40 hover:text-white transition-all duration-500 font-light tracking-[0.05em] text-sm uppercase px-6 py-3"
+                  className="inline-block border border-white/40 text-white/90 hover:border-white/60 hover:text-white transition-all duration-500 font-normal tracking-[0.05em] text-sm uppercase px-6 py-3 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
                 >
                   Apply for 2025
                 </a>
@@ -407,12 +407,12 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="mt-16 pt-8 border-t border-white/5">
+          <div className="mt-16 pt-8 border-t border-white/10">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-xs text-white/30 tracking-[0.2em] uppercase">
+              <div className="text-xs text-white/70 tracking-[0.2em] uppercase">
                 © 2025 Dewar Guitars • All Rights Reserved
               </div>
-              <div className="text-xs text-white/30 tracking-[0.2em] uppercase">
+              <div className="text-xs text-white/70 tracking-[0.2em] uppercase">
                 Handcrafted in Massachusetts
               </div>
             </div>

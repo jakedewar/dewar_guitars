@@ -12,13 +12,13 @@ export default function NotFound() {
           height={60}
           className="h-16 w-auto mx-auto mb-8 opacity-90"
         />
-        <h1 className="text-4xl font-light mb-4">Page Not Found</h1>
-        <p className="text-white/60 mb-8 font-light">
+        <h1 className="text-4xl font-normal mb-4 leading-tight">Page Not Found</h1>
+        <p className="text-white/90 mb-8 font-normal leading-relaxed">
           The page you&apos;re looking for doesn&apos;t exist.
         </p>
         <Link 
           href="/" 
-          className="inline-block border border-white/20 text-white/80 hover:border-white/40 hover:text-white transition-all duration-500 font-light tracking-[0.05em] text-sm uppercase px-6 py-3"
+          className="inline-block border border-white/50 text-white/90 hover:border-white/70 hover:text-white transition-all duration-500 font-normal tracking-[0.05em] text-sm uppercase px-6 py-3 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
         >
           Return Home
         </Link>

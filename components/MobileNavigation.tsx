@@ -44,12 +44,12 @@ export default function MobileNavigation({ className = '' }: MobileNavigationPro
             {/* Header */}
             <SheetHeader className="p-4 border-b border-white/10">
               <div className="flex items-center justify-between">
-                <SheetTitle className="text-white/60 text-sm font-light tracking-[0.1em] uppercase text-left">
+                <SheetTitle className="text-white/90 text-sm font-normal tracking-[0.1em] uppercase text-left">
                   Menu
                 </SheetTitle>
                 <SheetClose asChild>
                   <button 
-                    className="text-white/60 hover:text-white transition-colors duration-300 p-1"
+                    className="text-white/90 hover:text-white transition-colors duration-300 p-1 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
                     aria-label="Close menu"
                     style={{ 
                       minWidth: '44px', 
@@ -72,7 +72,7 @@ export default function MobileNavigation({ className = '' }: MobileNavigationPro
                 <SheetClose asChild>
                   <Link 
                     href="/#story" 
-                    className="block text-white/80 hover:text-white transition-colors duration-300 font-light tracking-[0.1em] text-lg uppercase py-3 border-b border-white/5"
+                    className="block text-white/90 hover:text-white transition-colors duration-300 font-normal tracking-[0.1em] text-lg uppercase py-3 border-b border-white/10 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
                     style={{ 
                       minHeight: '44px',
                       display: 'flex',
@@ -86,7 +86,7 @@ export default function MobileNavigation({ className = '' }: MobileNavigationPro
                 <SheetClose asChild>
                   <Link 
                     href="/#collection" 
-                    className="block text-white/80 hover:text-white transition-colors duration-300 font-light tracking-[0.1em] text-lg uppercase py-3 border-b border-white/5"
+                    className="block text-white/90 hover:text-white transition-colors duration-300 font-normal tracking-[0.1em] text-lg uppercase py-3 border-b border-white/10 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
                     style={{ 
                       minHeight: '44px',
                       display: 'flex',
@@ -100,7 +100,7 @@ export default function MobileNavigation({ className = '' }: MobileNavigationPro
                 <SheetClose asChild>
                   <Link 
                     href="/#craftsmanship" 
-                    className="block text-white/80 hover:text-white transition-colors duration-300 font-light tracking-[0.1em] text-lg uppercase py-3 border-b border-white/5"
+                    className="block text-white/90 hover:text-white transition-colors duration-300 font-normal tracking-[0.1em] text-lg uppercase py-3 border-b border-white/10 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
                     style={{ 
                       minHeight: '44px',
                       display: 'flex',
@@ -114,7 +114,7 @@ export default function MobileNavigation({ className = '' }: MobileNavigationPro
                 <SheetClose asChild>
                   <Link 
                     href="/#apply" 
-                    className="block text-white/80 hover:text-white transition-colors duration-300 font-light tracking-[0.1em] text-lg uppercase py-3 border-b border-white/5"
+                    className="block text-white/90 hover:text-white transition-colors duration-300 font-normal tracking-[0.1em] text-lg uppercase py-3 border-b border-white/10 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
                     style={{ 
                       minHeight: '44px',
                       display: 'flex',
@@ -131,13 +131,13 @@ export default function MobileNavigation({ className = '' }: MobileNavigationPro
             {/* Footer */}
             <div className="p-4 border-t border-white/10">
               <div className="space-y-4">
-                <div className="text-xs text-white/40 tracking-[0.2em] uppercase">
+                <div className="text-xs text-white/75 tracking-[0.2em] uppercase">
                   Handcrafted in Massachusetts
                 </div>
                 <div className="flex space-x-4">
                   <a 
                     href="mailto:info@dewarguitars.com" 
-                    className="text-white/60 hover:text-white transition-colors duration-300 font-light tracking-wide text-sm"
+                    className="text-white/85 hover:text-white transition-colors duration-300 font-normal tracking-wide text-sm focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
                     style={{ 
                       minHeight: '44px',
                       display: 'flex',
@@ -149,7 +149,7 @@ export default function MobileNavigation({ className = '' }: MobileNavigationPro
                   </a>
                   <a 
                     href="#" 
-                    className="text-white/60 hover:text-white transition-colors duration-300 font-light tracking-wide text-sm"
+                    className="text-white/85 hover:text-white transition-colors duration-300 font-normal tracking-wide text-sm focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
                     style={{ 
                       minHeight: '44px',
                       display: 'flex',

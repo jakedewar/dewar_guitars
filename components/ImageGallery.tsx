@@ -134,7 +134,7 @@ const CustomImageGallery: React.FC<ImageGalleryProps> = ({ images, guitarName })
           
           {/* Image Counter */}
           {images.length > 1 && (
-            <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 bg-black/50 text-white px-2 py-1 rounded text-xs font-medium">
+            <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 bg-black/70 text-white px-2 py-1 rounded text-xs font-normal">
               {currentIndex + 1} / {images.length}
             </div>
           )}

@@ -145,11 +145,11 @@ export default function StoryCarousel() {
                     <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
                       <div>
                         <div className={`text-xs sm:text-sm tracking-[0.3em] uppercase mb-3 sm:mb-4 ${
-                          story.theme === "light" ? "text-gray-500" : "text-white/40"
+                          story.theme === "light" ? "text-gray-600" : "text-white/80"
                         }`}>
                           {story.title}
                         </div>
-                        <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-thin tracking-wide leading-tight ${
+                        <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-wide leading-tight ${
                           story.theme === "light" ? "text-black" : "text-white"
                         }`}>
                           {story.subtitle}
@@ -157,18 +157,18 @@ export default function StoryCarousel() {
                       </div>
                       
                       <div className="space-y-4 sm:space-y-6">
-                        <p className={`text-base sm:text-lg md:text-xl leading-relaxed font-light ${
-                          story.theme === "light" ? "text-gray-700" : "text-white/80"
+                        <p className={`text-base sm:text-lg md:text-xl leading-relaxed font-normal ${
+                          story.theme === "light" ? "text-gray-800" : "text-white/90"
                         }`}>
                           {story.content}
                         </p>
                       </div>
                       
                       <div className={`pt-6 sm:pt-8 border-t ${
-                        story.theme === "light" ? "border-gray-200" : "border-white/10"
+                        story.theme === "light" ? "border-gray-300" : "border-white/20"
                       }`}>
                         <div className={`text-xs tracking-[0.4em] uppercase ${
-                          story.theme === "light" ? "text-gray-500" : "text-white/40"
+                          story.theme === "light" ? "text-gray-600" : "text-white/80"
                         }`}>
                           {story.accent}
                         </div>
@@ -258,8 +258,8 @@ export default function StoryCarousel() {
 
         {/* Section Counter */}
         <div className="absolute top-4 sm:top-8 right-4 sm:right-8 z-20">
-          <div className={`text-xs sm:text-sm font-light tracking-[0.2em] ${
-            currentStory.theme === "light" ? "text-gray-500" : "text-white/40"
+          <div className={`text-xs sm:text-sm font-normal tracking-[0.2em] ${
+            currentStory.theme === "light" ? "text-gray-700" : "text-white/80"
           }`}>
             {String(current).padStart(2, '0')} / {String(count).padStart(2, '0')}
           </div>

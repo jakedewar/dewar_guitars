@@ -78,6 +78,75 @@
     text-rendering: optimizeLegibility;
   }
   
+  /* Typography accessibility improvements */
+  /* Ensure minimum font sizes for readability */
+  body {
+    font-size: 16px; /* Base font size - minimum for accessibility */
+    line-height: 1.6; /* Improved line height for readability */
+  }
+  
+  /* Minimum font sizes for different text elements */
+  p, li, span, div, a {
+    font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1rem); /* 14px - 16px */
+    line-height: 1.6; /* 1.5-1.7 is optimal for body text */
+  }
+  
+  /* Improved heading line heights */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2; /* Tighter for headings */
+    letter-spacing: -0.01em; /* Slightly tighter for better readability */
+  }
+  
+  /* Better contrast for small text */
+  small, .text-xs {
+    font-size: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem); /* 12px - 14px */
+    line-height: 1.5;
+  }
+  
+  /* Improved link contrast and focus states */
+  a {
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+  }
+  
+  a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  
+  /* Better button text legibility */
+  button {
+    font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+    line-height: 1.5;
+    letter-spacing: 0.05em; /* Slightly increased for better readability */
+  }
+  
+  /* Improved input and form text */
+  input, textarea, select {
+    font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+    line-height: 1.5;
+  }
+  
+  /* Better focus states for form elements */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    * {
+      text-shadow: none !important;
+    }
+    
+    a, button {
+      text-decoration: underline;
+    }
+  }
+  
   /* Touch optimization */
   .touch-manipulation {
     touch-action: manipulation;
