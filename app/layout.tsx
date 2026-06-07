@@ -1,13 +1,25 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Cormorant_Garamond, Source_Sans_3 } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const displayFont = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-display',
+  display: 'swap',
+})
+
+const bodyFont = Source_Sans_3({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-body',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Dewar Guitars - Heirloom Luthiery | Handcrafted Excellence',
-  description: 'Only 12 guitars per year. Handcrafted by one man, from raw wood to final note. Apply for the exclusive 2025 Collection. Starting at $3,499.',
-  keywords: ['handcrafted guitars', 'custom guitars', 'luthier', 'guitar builder', 'artisan guitars', 'limited edition guitars', 'Dewar Guitars', '2025 collection'],
+  description: 'Only 12 guitars per year. Handcrafted by one man, from raw wood to final note. Inquire about the exclusive 2026 Collection. Starting at $3,499.',
+  keywords: ['handcrafted guitars', 'custom guitars', 'luthier', 'guitar builder', 'artisan guitars', 'limited edition guitars', 'Dewar Guitars', '2026 collection'],
   authors: [{ name: 'Dewar Guitars' }],
   creator: 'Dewar Guitars',
   publisher: 'Dewar Guitars',
@@ -22,7 +34,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Dewar Guitars - Heirloom Luthiery',
-    description: 'Only 12 guitars per year. Handcrafted by one man, from raw wood to final note. Apply for the exclusive 2025 Collection.',
+    description: 'Only 12 guitars per year. Handcrafted by one man, from raw wood to final note. Inquire about the exclusive 2026 Collection.',
     url: 'https://dewarguitars.com',
     siteName: 'Dewar Guitars',
     images: [
@@ -45,7 +57,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Dewar Guitars - Heirloom Luthiery',
-    description: 'Only 12 guitars per year. Handcrafted by one man, from raw wood to final note. Apply for the exclusive 2025 Collection.',
+    description: 'Only 12 guitars per year. Handcrafted by one man, from raw wood to final note. Inquire about the exclusive 2026 Collection.',
     images: ['/images/DewarGuitars_1.webp'],
     creator: '@dewarguitars',
   },
@@ -77,8 +89,8 @@ export const metadata: Metadata = {
     'apple-mobile-web-app-status-bar-style': 'black-translucent',
     'apple-mobile-web-app-title': 'Dewar Guitars',
     'application-name': 'Dewar Guitars',
-    'msapplication-TileColor': '#000000',
-    'theme-color': '#000000',
+    'msapplication-TileColor': '#0A0A0A',
+    'theme-color': '#0A0A0A',
   },
 }
 
@@ -88,7 +100,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`}>
       <head>
         {/* Performance optimizations */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -125,7 +137,8 @@ export default function RootLayout({
               "image": "https://dewarguitars.com/images/DewarGuitars_1.webp",
               "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Massachusetts",
+                "addressLocality": "Holliston",
+                "addressRegion": "MA",
                 "addressCountry": "US"
               },
               "sameAs": [
@@ -136,13 +149,13 @@ export default function RootLayout({
                 "price": "3499",
                 "priceCurrency": "USD",
                 "availability": "https://schema.org/LimitedAvailability",
-                "description": "Handcrafted guitar from the 2025 Collection"
+                "description": "Handcrafted guitar from the 2026 Collection"
               }
             })
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${bodyFont.className} font-body`}>
         {children}
       </body>
     </html>

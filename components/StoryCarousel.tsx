@@ -1,16 +1,15 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useRef } from "react"
 import Image from "next/image"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel"
-import { Button } from "@/components/ui/button"
+import TextureOverlay from "@/components/TextureOverlay"
 
 interface StorySection {
   id: number
@@ -32,13 +31,13 @@ const storySections: StorySection[] = [
     image: "/images/DewarGuitars_2.webp",
     imageAlt: "Workshop craftsmanship",
     theme: "light",
-    accent: "Handcrafted by Jim Dewar in Massachusetts"
+    accent: "Handcrafted by Jim Dewar in Holliston, Massachusetts"
   },
   {
     id: 2,
     title: "The Vision",
     subtitle: "Where Tone Meets Power",
-    content: "Built at our build-barn in Massachusetts, USA, the Distiller fuses unique design innovations with the creature comforts of our favorite player guitars. An intricate, custom-designed bridge for granular, tool-less action and intonation, a streamlined 'c-shape' neck for comfort and stability while accessing all 22 frets.",
+    content: "Built at our build-barn in Holliston, Massachusetts, the Distiller fuses unique design innovations with the creature comforts of our favorite player guitars. An intricate, custom-designed bridge for granular, tool-less action and intonation, a streamlined 'c-shape' neck for comfort and stability while accessing all 22 frets.",
     image: "/images/DewarGuitars_3.webp",
     imageAlt: "Custom bridge detail",
     theme: "dark",
@@ -48,7 +47,7 @@ const storySections: StorySection[] = [
     id: 3,
     title: "The Craft",
     subtitle: "Every Detail Hand-Shaped",
-    content: "Most builders buy parts. I machine my own. Every fret, every bridge, every curve is hand-shaped in my Massachusetts workshop. With 90% hand-crafted components and meticulous attention to every detail, the Distiller represents the pinnacle of guitar craftsmanship.",
+    content: "Most builders buy parts. I machine my own. Every fret, every bridge, every curve is hand-shaped in my Holliston workshop. With 90% hand-crafted components and meticulous attention to every detail, the Distiller represents the pinnacle of guitar craftsmanship.",
     image: "/images/DewarGuitars_4.webp",
     imageAlt: "Hardware details",
     theme: "light",
@@ -72,59 +71,75 @@ const storySections: StorySection[] = [
     image: "/images/DewarGuitars_1.webp",
     imageAlt: "Hand-crafted guitar detail",
     theme: "light",
-    accent: "Exclusivity • Artistry • Legacy"
+    accent: "Exclusivity · Artistry · Legacy"
   }
 ]
 
 export default function StoryCarousel() {
   const [api, setApi] = useState<CarouselApi>()
-  const [current, setCurrent] = useState(1) // Start at 1 to match carousel indexing
-  const [count, setCount] = useState(0)
+  const [current, setCurrent] = useState(1)
+  const [count, setCount] = useState(storySections.length)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const userInteracted = useRef(false)
 
   useEffect(() => {
-    if (!api) {
-      return
+    if (!api) return
+
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap() + 1)
+      if (userInteracted.current) {
+        setIsAutoPlaying(false)
+      }
     }
 
     setCount(api.scrollSnapList().length)
-    setCurrent(api.selectedScrollSnap() + 1)
+    onSelect()
 
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1)
-      setIsAutoPlaying(false) // Stop auto-play when user interacts
-    })
+    api.on("reInit", onSelect)
+    api.on("select", onSelect)
+
+    return () => {
+      api.off("select", onSelect)
+      api.off("reInit", onSelect)
+    }
   }, [api])
 
-  // Auto-advance carousel
   useEffect(() => {
     if (!api || !isAutoPlaying) return
 
     const interval = setInterval(() => {
       api.scrollNext()
-    }, 8000) // Change every 8 seconds
+    }, 8000)
 
     return () => clearInterval(interval)
   }, [api, isAutoPlaying])
 
+  const stopAutoPlay = useCallback(() => {
+    userInteracted.current = true
+    setIsAutoPlaying(false)
+  }, [])
+
   const goToSlide = useCallback((index: number) => {
-    if (api) {
-      api.scrollTo(index)
-      setIsAutoPlaying(false)
-    }
-  }, [api])
+    stopAutoPlay()
+    api?.scrollTo(index)
+  }, [api, stopAutoPlay])
+
+  const goToPrevious = useCallback(() => {
+    stopAutoPlay()
+    api?.scrollPrev()
+  }, [api, stopAutoPlay])
+
+  const goToNext = useCallback(() => {
+    stopAutoPlay()
+    api?.scrollNext()
+  }, [api, stopAutoPlay])
 
   const currentStory = storySections[current - 1] || storySections[0]
+  const isLight = currentStory.theme === "light"
+  const progress = count > 0 ? (current / count) * 100 : 0
 
   return (
-    <section id="story" className="relative overflow-hidden">
-      {/* Background with subtle pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
-      </div>
-
+    <section id="story" className="relative">
       <Carousel
         setApi={setApi}
         className="w-full"
@@ -133,136 +148,158 @@ export default function StoryCarousel() {
           loop: true,
         }}
       >
-        <CarouselContent>
-          {storySections.map((story, index) => (
-            <CarouselItem key={story.id}>
-              <div className={`py-8 sm:py-16 md:py-20 lg:py-24 transition-all duration-1000 ${
-                story.theme === "light" ? "bg-white text-black" : "bg-black text-white"
-              }`}>
-                <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
-                    {/* Content */}
-                    <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
-                      <div>
-                        <div className={`text-xs sm:text-sm tracking-[0.3em] uppercase mb-3 sm:mb-4 ${
-                          story.theme === "light" ? "text-gray-600" : "text-white/80"
-                        }`}>
-                          {story.title}
+        <CarouselContent className="-ml-0">
+          {storySections.map((story) => {
+            const light = story.theme === "light"
+            return (
+              <CarouselItem key={story.id} className="pl-0">
+                <div
+                  className={`py-8 sm:py-14 md:py-20 lg:py-24 transition-all duration-1000 relative overflow-hidden ${
+                    light ? "bg-parchment text-on-light-primary" : "bg-ink text-on-dark-primary"
+                  }`}
+                >
+                  <TextureOverlay variant={light ? "dark" : "light"} />
+                  <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
+                      <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
+                        <div>
+                          <p
+                            className={`type-eyebrow mb-3 sm:mb-4 ${
+                              light ? "text-on-light-muted" : "text-on-dark-muted"
+                            }`}
+                          >
+                            {story.title}
+                          </p>
+                          <h2
+                            className={`type-display ${
+                              light ? "text-on-light-primary" : "text-on-dark-primary"
+                            }`}
+                          >
+                            {story.subtitle}
+                          </h2>
                         </div>
-                        <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-wide leading-tight ${
-                          story.theme === "light" ? "text-black" : "text-white"
-                        }`}>
-                          {story.subtitle}
-                        </h2>
-                      </div>
-                      
-                      <div className="space-y-4 sm:space-y-6">
-                        <p className={`text-base sm:text-lg md:text-xl leading-relaxed font-normal ${
-                          story.theme === "light" ? "text-gray-800" : "text-white/90"
-                        }`}>
+
+                        <p
+                          className={`type-body ${
+                            light ? "text-on-light-secondary" : "text-on-dark-secondary"
+                          }`}
+                        >
                           {story.content}
                         </p>
-                      </div>
-                      
-                      <div className={`pt-6 sm:pt-8 border-t ${
-                        story.theme === "light" ? "border-gray-300" : "border-white/20"
-                      }`}>
-                        <div className={`text-xs tracking-[0.4em] uppercase ${
-                          story.theme === "light" ? "text-gray-600" : "text-white/80"
-                        }`}>
-                          {story.accent}
+
+                        <div
+                          className={`pt-6 sm:pt-8 border-t ${
+                            light ? "border-walnut" : "border-white/20"
+                          }`}
+                        >
+                          <p
+                            className={`type-caption ${
+                              light ? "text-on-light-muted" : "text-dewar-red"
+                            }`}
+                          >
+                            {story.accent}
+                          </p>
                         </div>
                       </div>
-                    </div>
-                    
-                    {/* Image */}
-                    <div className="relative group order-1 lg:order-2">
-                      <div className="relative h-[320px] sm:h-[420px] md:h-[520px] lg:h-[650px] overflow-hidden">
-                        <Image
-                          src={story.image}
-                          alt={story.imageAlt}
-                          fill
-                          className="object-contain transition-transform duration-700 group-hover:scale-105"
+
+                      <div className="relative group order-1 lg:order-2">
+                        <div className="relative h-[320px] sm:h-[420px] md:h-[520px] lg:h-[650px] overflow-hidden">
+                          <Image
+                            src={story.image}
+                            alt={story.imageAlt}
+                            fill
+                            className="object-contain transition-transform duration-700 group-hover:scale-105"
+                          />
+                          <div
+                            className={`absolute inset-0 transition-colors duration-500 ${
+                              light
+                                ? "bg-ink/10 group-hover:bg-ink/5"
+                                : "bg-white/10 group-hover:bg-white/5"
+                            }`}
+                          />
+                        </div>
+                        <div
+                          className={`absolute -inset-2 sm:-inset-4 border opacity-50 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${
+                            light ? "border-walnut/40" : "border-dewar-red/30"
+                          }`}
                         />
-                        <div className={`absolute inset-0 transition-colors duration-500 ${
-                          story.theme === "light" 
-                            ? "bg-black/10 group-hover:bg-black/5" 
-                            : "bg-white/10 group-hover:bg-white/5"
-                        }`}></div>
                       </div>
-                      {/* Decorative frame */}
-                      <div className={`absolute -inset-2 sm:-inset-4 border opacity-50 group-hover:opacity-100 transition-opacity duration-500 ${
-                        story.theme === "light" ? "border-gray-200" : "border-white/20"
-                      }`}></div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </CarouselItem>
-          ))}
+              </CarouselItem>
+            )
+          })}
         </CarouselContent>
 
-        {/* Custom Navigation Controls */}
-        <div className="flex justify-center items-center py-4 sm:py-8 md:py-12">
+        <div
+          className={`flex justify-center items-center py-4 sm:py-8 md:py-12 ${
+            isLight ? "bg-parchment" : "bg-ink"
+          }`}
+        >
           <div className="flex items-center space-x-3 sm:space-x-6">
-            {/* Previous Button */}
-            <CarouselPrevious 
-              className={`h-10 w-10 sm:h-12 sm:w-12 rounded-full border-0 bg-transparent hover:bg-transparent ${
-                currentStory.theme === "light" 
-                  ? "text-gray-600 hover:text-black" 
-                  : "text-white/60 hover:text-white"
+            <button
+              type="button"
+              onClick={goToPrevious}
+              className={`h-10 w-10 sm:h-12 sm:w-12 flex items-center justify-center rounded-full border border-current/20 transition-colors duration-300 touch-manipulation focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2 ${
+                isLight
+                  ? "text-on-light-muted hover:text-on-light-primary hover:border-walnut/50"
+                  : "text-on-dark-muted hover:text-on-dark-primary hover:border-dewar-red/50"
               }`}
-            />
+              aria-label="Previous story"
+            >
+              <ArrowLeft className="h-5 w-5" />
+            </button>
 
-            {/* Dots Navigation */}
             <div className="flex space-x-3 sm:space-x-4">
               {Array.from({ length: count }).map((_, index) => (
                 <button
                   key={index}
+                  type="button"
                   onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 touch-manipulation ${
+                  className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 touch-manipulation focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2 ${
                     index === current - 1
-                      ? "scale-125 shadow-lg"
-                      : currentStory.theme === "light"
-                        ? "bg-gray-300 hover:bg-gray-500"
+                      ? "scale-125 bg-dewar-red shadow-[0_0_8px_hsl(var(--dewar-red)/0.4)]"
+                      : isLight
+                        ? "bg-walnut/30 hover:bg-walnut/50"
                         : "bg-white/20 hover:bg-white/40"
                   }`}
-                  style={{
-                    backgroundColor: index === current - 1 ? "#D12A2F" : undefined,
-                    boxShadow: index === current - 1 ? "0 0 8px rgba(209, 42, 47, 0.3)" : undefined
-                  }}
                   aria-label={`Go to story section ${index + 1}`}
+                  aria-current={index === current - 1 ? "true" : undefined}
                 />
               ))}
             </div>
 
-            {/* Next Button */}
-            <CarouselNext 
-              className={`h-10 w-10 sm:h-12 sm:w-12 rounded-full border-0 bg-transparent hover:bg-transparent ${
-                currentStory.theme === "light" 
-                  ? "text-gray-600 hover:text-black" 
-                  : "text-white/60 hover:text-white"
+            <button
+              type="button"
+              onClick={goToNext}
+              className={`h-10 w-10 sm:h-12 sm:w-12 flex items-center justify-center rounded-full border border-current/20 transition-colors duration-300 touch-manipulation focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2 ${
+                isLight
+                  ? "text-on-light-muted hover:text-on-light-primary hover:border-walnut/50"
+                  : "text-on-dark-muted hover:text-on-dark-primary hover:border-dewar-red/50"
               }`}
-            />
+              aria-label="Next story"
+            >
+              <ArrowRight className="h-5 w-5" />
+            </button>
           </div>
         </div>
 
-        {/* Progress Bar */}
-        <div className="absolute top-0 left-0 w-full h-1 z-20">
-          <div className={`h-full transition-all duration-1000 ${
-            currentStory.theme === "light" ? "bg-black" : "bg-white"
-          }`} style={{
-            width: `${(current / count) * 100}%`
-          }}></div>
+        <div className="absolute top-0 left-0 w-full h-1 z-20 pointer-events-none">
+          <div
+            className="h-full bg-dewar-red transition-all duration-1000"
+            style={{ width: `${progress}%` }}
+          />
         </div>
 
-        {/* Section Counter */}
-        <div className="absolute top-4 sm:top-8 right-4 sm:right-8 z-20">
-          <div className={`text-xs sm:text-sm font-normal tracking-[0.2em] ${
-            currentStory.theme === "light" ? "text-gray-700" : "text-white/80"
-          }`}>
-            {String(current).padStart(2, '0')} / {String(count).padStart(2, '0')}
-          </div>
+        <div className="absolute top-4 sm:top-8 right-4 sm:right-8 z-20 pointer-events-none">
+          <p
+            className={`type-caption ${
+              isLight ? "text-on-light-muted" : "text-on-dark-muted"
+            }`}
+          >
+            {String(current).padStart(2, "0")} / {String(count).padStart(2, "0")}
+          </p>
         </div>
       </Carousel>
     </section>

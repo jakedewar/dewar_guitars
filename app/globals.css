@@ -4,48 +4,46 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Shadcn base */
+    --background: 36 39% 94%;
+    --foreground: 0 0% 4%;
+    --card: 36 39% 94%;
+    --card-foreground: 0 0% 4%;
+    --popover: 36 39% 94%;
+    --popover-foreground: 0 0% 4%;
+    --primary: 0 0% 4%;
+    --primary-foreground: 36 39% 94%;
+    --secondary: 22 23% 34%;
+    --secondary-foreground: 36 39% 94%;
+    --muted: 36 20% 88%;
+    --muted-foreground: 22 15% 40%;
+    --accent: 359 65% 49%;
+    --accent-foreground: 36 39% 94%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
-  }
+    --destructive-foreground: 36 39% 94%;
+    --border: 22 20% 75%;
+    --input: 22 20% 75%;
+    --ring: 359 65% 49%;
+    --radius: 0rem;
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    /* Dewar brand palette */
+    --ink: 0 0% 4%;
+    --parchment: 36 39% 94%;
+    --walnut: 22 23% 34%;
+    --dewar-red: 359 65% 49%;
+    --brass: 32 38% 57%;
+
+    /* Semantic text on dark backgrounds */
+    --on-dark-primary: 0 0% 100%;
+    --on-dark-secondary: 0 0% 100% / 0.88;
+    --on-dark-muted: 0 0% 100% / 0.72;
+    --on-dark-subtle: 0 0% 100% / 0.55;
+
+    /* Semantic text on light backgrounds */
+    --on-light-primary: 0 0% 4%;
+    --on-light-secondary: 22 23% 25%;
+    --on-light-muted: 22 15% 40%;
+    --on-light-subtle: 22 12% 55%;
   }
 }
 
@@ -53,106 +51,167 @@
   * {
     @apply border-border;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
 
-/* Performance optimizations */
-@layer utilities {
-  /* Hardware acceleration for smooth animations */
-  .gpu-accelerated {
-    transform: translateZ(0);
-    will-change: transform;
-  }
-  
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  /* Optimize font rendering */
   body {
+    @apply bg-parchment text-ink font-body antialiased;
+    font-size: 16px;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
-  
-  /* Typography accessibility improvements */
-  /* Ensure minimum font sizes for readability */
-  body {
-    font-size: 16px; /* Base font size - minimum for accessibility */
-    line-height: 1.6; /* Improved line height for readability */
-  }
-  
-  /* Minimum font sizes for different text elements */
-  p, li, span, div, a {
-    font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1rem); /* 14px - 16px */
-    line-height: 1.6; /* 1.5-1.7 is optimal for body text */
-  }
-  
-  /* Improved heading line heights */
+
   h1, h2, h3, h4, h5, h6 {
-    line-height: 1.2; /* Tighter for headings */
-    letter-spacing: -0.01em; /* Slightly tighter for better readability */
+    @apply font-display;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
   }
-  
-  /* Better contrast for small text */
-  small, .text-xs {
-    font-size: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem); /* 12px - 14px */
-    line-height: 1.5;
-  }
-  
-  /* Improved link contrast and focus states */
+
   a {
     text-decoration: none;
     transition: color 0.2s ease, opacity 0.2s ease;
   }
-  
+
   a:focus-visible {
-    outline: 2px solid currentColor;
+    outline: 2px solid hsl(var(--dewar-red));
     outline-offset: 2px;
     border-radius: 2px;
   }
-  
-  /* Better button text legibility */
+
   button {
-    font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
-    line-height: 1.5;
-    letter-spacing: 0.05em; /* Slightly increased for better readability */
-  }
-  
-  /* Improved input and form text */
-  input, textarea, select {
-    font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
     line-height: 1.5;
   }
-  
-  /* Better focus states for form elements */
+
   input:focus-visible,
   textarea:focus-visible,
   select:focus-visible {
-    outline: 2px solid currentColor;
+    outline: 2px solid hsl(var(--dewar-red));
     outline-offset: 2px;
   }
-  
-  /* High contrast mode support */
+}
+
+@layer components {
+  .type-eyebrow {
+    @apply font-body text-[11px] sm:text-xs uppercase tracking-[0.25em] font-normal;
+  }
+
+  .type-display {
+    @apply font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-wide leading-tight;
+  }
+
+  .type-section-title {
+    @apply font-display text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide leading-tight;
+  }
+
+  .type-lead {
+    @apply font-body text-lg sm:text-xl md:text-[1.375rem] font-normal leading-relaxed;
+  }
+
+  .type-body {
+    @apply font-body text-base sm:text-[1.0625rem] font-normal leading-relaxed;
+  }
+
+  .type-caption {
+    @apply font-body text-xs sm:text-sm font-normal leading-normal tracking-wide;
+  }
+
+  .type-price {
+    @apply font-display text-2xl sm:text-3xl md:text-4xl font-normal tracking-wide tabular-nums leading-tight;
+  }
+
+  /* Dark section text roles */
+  .text-on-dark-primary {
+    color: hsl(var(--on-dark-primary));
+  }
+
+  .text-on-dark-secondary {
+    color: hsl(var(--on-dark-secondary));
+  }
+
+  .text-on-dark-muted {
+    color: hsl(var(--on-dark-muted));
+  }
+
+  .text-on-dark-subtle {
+    color: hsl(var(--on-dark-subtle));
+  }
+
+  /* Light section text roles */
+  .text-on-light-primary {
+    color: hsl(var(--on-light-primary));
+  }
+
+  .text-on-light-secondary {
+    color: hsl(var(--on-light-secondary));
+  }
+
+  .text-on-light-muted {
+    color: hsl(var(--on-light-muted));
+  }
+
+  .text-on-light-subtle {
+    color: hsl(var(--on-light-subtle));
+  }
+
+  .border-walnut {
+    border-color: hsl(var(--walnut) / 0.35);
+  }
+
+  .bg-ink {
+    background-color: hsl(var(--ink));
+  }
+
+  .bg-parchment {
+    background-color: hsl(var(--parchment));
+  }
+
+  .text-dewar-red {
+    color: hsl(var(--dewar-red));
+  }
+
+  .border-dewar-red {
+    border-color: hsl(var(--dewar-red));
+  }
+
+  .bg-dewar-red {
+    background-color: hsl(var(--dewar-red));
+  }
+
+  .nav-link-underline::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-px bg-dewar-red transition-all duration-500;
+  }
+
+  .nav-link-underline:hover::after,
+  .nav-link-underline:focus-visible::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
   @media (prefers-contrast: high) {
     * {
       text-shadow: none !important;
     }
-    
+
     a, button {
       text-decoration: underline;
     }
   }
-  
-  /* Touch optimization */
-  .touch-manipulation {
-    touch-action: manipulation;
-  }
-  
-  /* Reduce motion for accessibility */
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -163,46 +222,38 @@
       scroll-behavior: auto !important;
     }
   }
-  
-  /* Focus styles for accessibility */
+
   .focus-visible:focus-visible {
-    outline: 2px solid hsl(var(--ring));
+    outline: 2px solid hsl(var(--dewar-red));
     outline-offset: 2px;
   }
-  
-  /* Loading states */
+
   .loading {
     opacity: 0.6;
     pointer-events: none;
   }
-  
-  /* Video loading overlay */
+
   .video-loading {
     transition: opacity 0.3s ease-in-out;
   }
-  
-  /* Hero section luxury animations */
+
   .hero-fade-in {
     animation: heroFadeIn 1.2s ease-out forwards;
     opacity: 0;
     transform: translateY(30px);
   }
-  
-  .hero-logo-float {
-    animation: logoFloat 6s ease-in-out infinite;
-  }
-  
+
   .hero-text-reveal {
     animation: textReveal 1.5s ease-out 0.3s forwards;
     opacity: 0;
     transform: translateY(20px);
   }
-  
+
   .hero-button-glow {
     position: relative;
     overflow: hidden;
   }
-  
+
   .hero-button-glow::before {
     content: '';
     position: absolute;
@@ -210,42 +261,32 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
     transition: left 0.5s;
   }
-  
+
   .hero-button-glow:hover::before {
     left: 100%;
   }
-  
+
   @keyframes heroFadeIn {
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-  
-  @keyframes logoFloat {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-  
+
   @keyframes textReveal {
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-  
-  /* Luxury scroll indicator */
+
   .scroll-indicator {
     animation: scrollPulse 2s ease-in-out infinite;
   }
-  
+
   @keyframes scrollPulse {
     0%, 100% {
       opacity: 0.3;
@@ -256,30 +297,33 @@
       transform: translateY(5px);
     }
   }
-  
-  /* Premium text shadows */
+
   .luxury-text-shadow {
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.2);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
   }
-  
-  /* Subtle parallax effect */
+
   .parallax-bg {
     transform: translateZ(0);
     will-change: transform;
   }
-  
-  /* Performance optimizations for Hero section */
+
   .hero-optimized {
     contain: layout style paint;
     transform: translateZ(0);
     backface-visibility: hidden;
     perspective: 1000px;
   }
-  
-  /* Reduce motion for accessibility */
+
+  .texture-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .texture-overlay-dark {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hero-fade-in,
-    .hero-logo-float,
     .hero-text-reveal,
     .scroll-indicator {
       animation: none !important;

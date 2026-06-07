@@ -1,9 +1,10 @@
 import Link from "next/link"
 import Image from "next/image"
+import { Button } from "@/components/ui/button"
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-black text-white flex items-center justify-center">
+    <main className="min-h-screen bg-ink text-on-dark-primary flex items-center justify-center">
       <div className="text-center max-w-md mx-auto px-6">
         <Image
           src="/images/DEWAR v3 trans AI 1.svg"
@@ -12,16 +13,13 @@ export default function NotFound() {
           height={60}
           className="h-16 w-auto mx-auto mb-8 opacity-90"
         />
-        <h1 className="text-4xl font-normal mb-4 leading-tight">Page Not Found</h1>
-        <p className="text-white/90 mb-8 font-normal leading-relaxed">
+        <h1 className="type-section-title mb-4">Page Not Found</h1>
+        <p className="type-body text-on-dark-secondary mb-8">
           The page you&apos;re looking for doesn&apos;t exist.
         </p>
-        <Link 
-          href="/" 
-          className="inline-block border border-white/50 text-white/90 hover:border-white/70 hover:text-white transition-all duration-500 font-normal tracking-[0.05em] text-sm uppercase px-6 py-3 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
-        >
-          Return Home
-        </Link>
+        <Button asChild variant="luxury" className="px-6 py-3 text-sm">
+          <Link href="/">Return Home</Link>
+        </Button>
       </div>
     </main>
   )

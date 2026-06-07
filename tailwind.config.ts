@@ -23,12 +23,21 @@ const config: Config = {
       },
     },
     extend: {
+      fontFamily: {
+        display: ["var(--font-display)", "Georgia", "serif"],
+        body: ["var(--font-body)", "system-ui", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        ink: "hsl(var(--ink))",
+        parchment: "hsl(var(--parchment))",
+        walnut: "hsl(var(--walnut))",
+        "dewar-red": "hsl(var(--dewar-red))",
+        brass: "hsl(var(--brass))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
