@@ -154,14 +154,14 @@ export default function StoryCarousel() {
             return (
               <CarouselItem key={story.id} className="pl-0">
                 <div
-                  className={`py-8 sm:py-14 md:py-20 lg:py-24 transition-all duration-1000 relative overflow-hidden ${
+                  className={`py-12 sm:py-16 md:py-20 lg:py-24 transition-colors duration-700 relative overflow-hidden ${
                     light ? "bg-parchment text-on-light-primary" : "bg-ink text-on-dark-primary"
                   }`}
                 >
                   <TextureOverlay variant={light ? "dark" : "light"} />
                   <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
-                      <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
+                      <div className="flex flex-col gap-6 sm:gap-8 order-2 lg:order-1">
                         <div>
                           <p
                             className={`type-eyebrow mb-3 sm:mb-4 ${
@@ -180,7 +180,7 @@ export default function StoryCarousel() {
                         </div>
 
                         <p
-                          className={`type-body ${
+                          className={`type-body max-w-2xl ${
                             light ? "text-on-light-secondary" : "text-on-dark-secondary"
                           }`}
                         >
@@ -237,27 +237,27 @@ export default function StoryCarousel() {
             isLight ? "bg-parchment" : "bg-ink"
           }`}
         >
-          <div className="flex items-center space-x-3 sm:space-x-6">
+          <div className="flex items-center gap-3 sm:gap-6">
             <button
               type="button"
               onClick={goToPrevious}
-              className={`h-10 w-10 sm:h-12 sm:w-12 flex items-center justify-center rounded-full border border-current/20 transition-colors duration-300 touch-manipulation focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2 ${
+              className={`size-11 sm:size-12 flex items-center justify-center rounded-full border border-current/30 transition-colors duration-300 touch-manipulation focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2 ${
                 isLight
                   ? "text-on-light-muted hover:text-on-light-primary hover:border-walnut/50"
                   : "text-on-dark-muted hover:text-on-dark-primary hover:border-dewar-red/50"
               }`}
               aria-label="Previous story"
             >
-              <ArrowLeft className="h-5 w-5" />
+              <ArrowLeft className="size-5" />
             </button>
 
-            <div className="flex space-x-3 sm:space-x-4">
+            <div className="flex gap-3 sm:gap-4">
               {Array.from({ length: count }).map((_, index) => (
                 <button
                   key={index}
                   type="button"
                   onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 touch-manipulation focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2 ${
+                  className={`size-3.5 sm:size-4 rounded-full transition-[background-color,box-shadow,transform] duration-300 touch-manipulation focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2 ${
                     index === current - 1
                       ? "scale-125 bg-dewar-red shadow-[0_0_8px_hsl(var(--dewar-red)/0.4)]"
                       : isLight
@@ -273,21 +273,21 @@ export default function StoryCarousel() {
             <button
               type="button"
               onClick={goToNext}
-              className={`h-10 w-10 sm:h-12 sm:w-12 flex items-center justify-center rounded-full border border-current/20 transition-colors duration-300 touch-manipulation focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2 ${
+              className={`size-11 sm:size-12 flex items-center justify-center rounded-full border border-current/30 transition-colors duration-300 touch-manipulation focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2 ${
                 isLight
                   ? "text-on-light-muted hover:text-on-light-primary hover:border-walnut/50"
                   : "text-on-dark-muted hover:text-on-dark-primary hover:border-dewar-red/50"
               }`}
               aria-label="Next story"
             >
-              <ArrowRight className="h-5 w-5" />
+              <ArrowRight className="size-5" />
             </button>
           </div>
         </div>
 
         <div className="absolute top-0 left-0 w-full h-1 z-20 pointer-events-none">
           <div
-            className="h-full bg-dewar-red transition-all duration-1000"
+            className="h-full bg-dewar-red transition-[width] duration-700"
             style={{ width: `${progress}%` }}
           />
         </div>

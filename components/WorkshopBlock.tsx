@@ -20,17 +20,17 @@ export default function WorkshopBlock() {
             <div className="absolute -inset-3 border border-dewar-red/30 pointer-events-none" aria-hidden="true" />
           </div>
 
-          <div className="space-y-8">
+          <div className="flex flex-col gap-8">
             <div>
               <p className="type-eyebrow text-on-dark-muted mb-4">The Workshop</p>
               <h2 className="type-section-title text-on-dark-primary mb-6">
                 Meet Jim Dewar
               </h2>
               <div className="w-16 h-px bg-dewar-red/60 mb-8" />
-              <p className="type-lead text-on-dark-secondary mb-6">
+              <p className="type-lead text-on-dark-secondary mb-6 max-w-2xl">
                 Master luthier Jim Dewar machines every part, carves every contour, and voices every note from his build-barn in Holliston, Massachusetts.
               </p>
-              <p className="type-body text-on-dark-muted">
+              <p className="type-body text-on-dark-muted max-w-2xl">
                 For over a decade, he has built the guitar he always wanted to play — not by assembling parts, but by shaping raw wood into instruments that will outlast their owners.
               </p>
             </div>

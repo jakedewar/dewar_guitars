@@ -1,11 +1,12 @@
-import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import SiteHeader from "@/components/SiteHeader"
 import SiteFooter from "@/components/SiteFooter"
 import CustomImageGallery from "@/components/ImageGallery"
 import SectionHeader from "@/components/SectionHeader"
 import TextureOverlay from "@/components/TextureOverlay"
-import ScarcityBadge from "@/components/ScarcityBadge"
+import KlaviyoProductView from "@/components/KlaviyoProductView"
+import InquiryForm from "@/components/InquiryForm"
+import type { KlaviyoProduct } from "@/lib/klaviyo"
 
 interface GuitarPageProps {
   params: Promise<{
@@ -14,7 +15,7 @@ interface GuitarPageProps {
 }
 
 export default async function GuitarPage({ params }: GuitarPageProps) {
-  await params
+  const { id } = await params
 
   const guitar = {
     name: "The Distiller",
@@ -34,7 +35,7 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
     },
     images: ["DewarGuitars_1.webp", "DewarGuitars_2.webp", "DewarGuitars_3.webp", "DewarGuitars_4.webp", "DewarGuitars_5.webp"],
     shipping: "Free shipping in the continental United States",
-    returns: "Contact info@dewarguitars.com for returns inquiries",
+    returns: "Returns handled by request",
   }
 
   const craftFeatures = [
@@ -58,8 +59,20 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
     },
   ]
 
+  const klaviyoProduct: KlaviyoProduct = {
+    ProductName: guitar.name,
+    ProductID: id,
+    SKU: id,
+    Categories: ["Guitars", "2026 Collection"],
+    ImageURL: `https://dewarguitars.com/images/${guitar.images[0]}`,
+    URL: `https://dewarguitars.com/guitar/${id}`,
+    Brand: "Dewar Guitars",
+    Price: 2499,
+  }
+
   return (
     <main className="min-h-screen bg-ink text-on-dark-primary">
+      <KlaviyoProductView product={klaviyoProduct} />
       <SiteHeader />
 
       <section className="pt-24 sm:pt-32 pb-8 sm:pb-16 bg-ink relative">
@@ -70,7 +83,7 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
               <CustomImageGallery images={guitar.images} guitarName={guitar.name} />
             </div>
 
-            <div className="space-y-6 sm:space-y-8">
+            <div className="flex flex-col gap-7 sm:gap-8">
               <div>
                 <p className="type-eyebrow text-on-dark-muted mb-3 sm:mb-4">The Distiller Collection</p>
                 <h1 className="type-display text-on-dark-primary mb-3 sm:mb-4">
@@ -83,24 +96,20 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
                   <p className="type-caption text-on-dark-muted">Handcrafted investment</p>
                 </div>
 
-                <div className="mb-6">
-                  <ScarcityBadge />
-                </div>
-
-                <p className="type-lead text-on-dark-secondary mb-4 sm:mb-6">
+                <p className="type-lead text-on-dark-secondary mb-4 sm:mb-6 max-w-3xl">
                   {guitar.description}
                 </p>
               </div>
 
-              <div className="space-y-3 sm:space-y-4">
+              <div className="flex flex-col gap-4">
                 {[
                   `${guitar.finish} Finish`,
                   "Custom Tool-less Bridge",
                   guitar.features,
                   "Hand-wound Humbuckers",
                 ].map((feature) => (
-                  <div key={feature} className="flex items-center space-x-3 sm:space-x-4">
-                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-dewar-red rounded-full flex-shrink-0" />
+                  <div key={feature} className="flex items-center gap-3 sm:gap-4">
+                    <div className="size-2 bg-dewar-red rounded-full flex-shrink-0" />
                     <span className="type-body text-on-dark-secondary">{feature}</span>
                   </div>
                 ))}
@@ -128,18 +137,18 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
                     { label: "Build Location", value: guitar.specifications.build_location },
                   ]},
                 ].map((section) => (
-                  <div key={section.group} className="space-y-3 sm:space-y-4 mb-6">
+                  <div key={section.group} className="mb-7 flex flex-col gap-4">
                     <h3 className="type-eyebrow text-brass">{section.group}</h3>
                     <div className="grid grid-cols-1 gap-2 sm:gap-3">
                       {section.rows.map((row, i) => (
                         <div
                           key={row.label}
-                          className={`flex justify-between items-start py-2 ${
+                          className={`flex flex-col gap-1 py-3 sm:flex-row sm:justify-between sm:items-start ${
                             i < section.rows.length - 1 ? "border-b border-white/10" : ""
                           }`}
                         >
                           <span className="type-body text-on-dark-muted">{row.label}</span>
-                          <span className="type-body text-on-dark-primary text-right max-w-xs ml-4 font-medium">
+                          <span className="type-body text-on-dark-primary max-w-sm font-semibold sm:ml-4 sm:text-right">
                             {row.value}
                           </span>
                         </div>
@@ -149,16 +158,18 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
                 ))}
               </div>
 
-              <div className="pt-6 sm:pt-8 space-y-4 sm:space-y-6">
-                <Button asChild variant="luxury" size="lg" className="w-full text-base sm:text-lg py-3 sm:py-4">
-                  <a href="mailto:info@dewarguitars.com">Contact Sales</a>
-                </Button>
+              <div className="flex flex-col gap-5 pt-6 sm:gap-6 sm:pt-8">
+                <InquiryForm
+                  source="guitar-page"
+                  productName={guitar.name}
+                  submitLabel="Inquire About This Guitar"
+                />
 
-                <div className="space-y-2 sm:space-y-3">
+                <div className="flex flex-col gap-3">
                   {[guitar.shipping, guitar.returns].map((note) => (
-                    <div key={note} className="flex items-start space-x-2 sm:space-x-3">
-                      <div className="w-1 h-1 bg-dewar-red rounded-full mt-2 flex-shrink-0" />
-                      <span className="type-caption text-on-dark-muted leading-relaxed">{note}</span>
+                    <div key={note} className="flex items-start gap-3">
+                      <div className="mt-3 size-1.5 bg-dewar-red rounded-full flex-shrink-0" />
+                      <span className="type-body text-on-dark-muted leading-relaxed">{note}</span>
                     </div>
                   ))}
                 </div>
@@ -180,7 +191,7 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
             {craftFeatures.map((feature) => (
-              <div key={feature.title} className="group space-y-4">
+              <div key={feature.title} className="group flex flex-col gap-4">
                 <div className="relative h-48 sm:h-56 overflow-hidden">
                   <Image
                     src={feature.image}
@@ -229,7 +240,7 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
                 text: "Revolutionary features like our tool-less bridge system combined with time-honored techniques create an instrument that's both cutting-edge and timeless.",
               },
             ].map((item) => (
-              <div key={item.title} className="text-center space-y-3 sm:space-y-4 md:space-y-6 sm:col-span-2 lg:col-span-1 last:sm:col-span-2 last:lg:col-span-1">
+              <div key={item.title} className="text-center flex flex-col gap-4 md:gap-6 sm:col-span-2 lg:col-span-1 last:sm:col-span-2 last:lg:col-span-1">
                 <div className="relative w-full h-40 sm:h-48 md:h-56 mb-3 sm:mb-4 md:mb-6 overflow-hidden">
                   <Image src={item.image} alt={item.alt} fill className="object-contain opacity-90" />
                   <div className="absolute inset-0 bg-ink/20" />
@@ -248,7 +259,7 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
               <p className="type-lead text-on-dark-secondary mb-4 sm:mb-6 md:mb-8 px-2">
                 Each Distiller is a rare masterpiece. When you own one, you&apos;re not just buying a guitar—you&apos;re joining an exclusive community of artists who demand nothing less than perfection.
               </p>
-              <p className="type-caption text-dewar-red">
+              <p className="type-body text-dewar-red font-semibold">
                 Exclusivity · Artistry · Legacy
               </p>
             </div>

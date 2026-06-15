@@ -17,7 +17,7 @@ interface MobileNavigationProps {
 
 const navLinks = [
   { href: '/#story', label: 'Story' },
-  { href: '/#collection', label: 'Collection' },
+  { href: '/guitar/distiller', label: 'Collection' },
   { href: '/#craftsmanship', label: 'Craftsmanship' },
   { href: 'mailto:info@dewarguitars.com', label: 'Contact' },
 ]
@@ -36,7 +36,7 @@ export default function MobileNavigation({ className = '' }: MobileNavigationPro
               touchAction: 'manipulation',
             }}
           >
-            <Menu className="w-6 h-6" />
+            <Menu className="size-6" />
           </button>
         </SheetTrigger>
 
@@ -63,19 +63,19 @@ export default function MobileNavigation({ className = '' }: MobileNavigationPro
                       touchAction: 'manipulation',
                     }}
                   >
-                    <X className="w-5 h-5" />
+                    <X className="size-5" />
                   </button>
                 </SheetClose>
               </div>
             </SheetHeader>
 
             <nav className="flex-1 px-4 py-8">
-              <div className="space-y-6">
+              <div className="flex flex-col gap-6">
                 {navLinks.map((link) => (
                   <SheetClose asChild key={link.href}>
                     <Link
                       href={link.href}
-                      className="block text-on-dark-secondary hover:text-dewar-red transition-colors duration-300 type-eyebrow text-base py-3 border-b border-white/10 focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2"
+                      className="block text-on-dark-secondary hover:text-dewar-red transition-colors duration-300 type-eyebrow text-lg py-3 border-b border-white/10 focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2"
                       style={{
                         minHeight: '44px',
                         display: 'flex',
@@ -91,11 +91,11 @@ export default function MobileNavigation({ className = '' }: MobileNavigationPro
             </nav>
 
             <div className="p-4 border-t border-white/10">
-              <div className="space-y-4">
+              <div className="flex flex-col gap-4">
                 <p className="type-caption text-on-dark-muted">
                   Handcrafted in Holliston, Massachusetts
                 </p>
-                <div className="flex space-x-4">
+                <div className="flex gap-4">
                   <a
                     href="mailto:info@dewarguitars.com"
                     className="type-body text-on-dark-secondary hover:text-dewar-red transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2"

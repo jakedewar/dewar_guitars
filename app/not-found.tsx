@@ -17,7 +17,7 @@ export default function NotFound() {
         <p className="type-body text-on-dark-secondary mb-8">
           The page you&apos;re looking for doesn&apos;t exist.
         </p>
-        <Button asChild variant="luxury" className="px-6 py-3 text-sm">
+        <Button asChild variant="luxury" size="lg">
           <Link href="/">Return Home</Link>
         </Button>
       </div>

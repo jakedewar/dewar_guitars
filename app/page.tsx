@@ -8,6 +8,7 @@ import SectionHeader from "@/components/SectionHeader"
 import TextureOverlay from "@/components/TextureOverlay"
 import WorkshopBlock from "@/components/WorkshopBlock"
 import ScarcityBadge from "@/components/ScarcityBadge"
+import InquiryForm from "@/components/InquiryForm"
 
 export default function Home() {
   return (
@@ -51,18 +52,28 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="space-y-4 sm:space-y-6 hero-text-reveal">
-            <Button
-              asChild
-              variant="luxury"
-              size="lg"
-              className="text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-12 lg:px-16 py-3 sm:py-4 md:py-5 lg:py-6 w-full sm:w-auto hero-button-glow"
-            >
-              <a href="mailto:info@dewarguitars.com">
-                <span className="relative z-10">Inquire About the 2026 Collection</span>
-              </a>
-            </Button>
-            <p className="type-caption text-on-dark-muted">
+          <div className="flex flex-col items-center gap-5 sm:gap-6 hero-text-reveal">
+            <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:gap-4">
+              <Button
+                asChild
+                variant="luxury"
+                size="lg"
+                className="w-full px-6 py-4 text-base sm:w-auto sm:px-10 md:px-12 md:text-lg hero-button-glow"
+              >
+                <a href="mailto:info@dewarguitars.com">
+                  <span className="relative z-10">Contact</span>
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="luxury"
+                size="lg"
+                className="w-full border-white/45 text-on-dark-primary hover:border-white sm:w-auto sm:px-10 md:px-12 md:text-lg"
+              >
+                <Link href="/guitar/distiller">View Collection</Link>
+              </Button>
+            </div>
+            <p className="type-body text-on-dark-muted">
               Limited edition · Handcrafted in Holliston, Massachusetts
             </p>
           </div>
@@ -70,7 +81,7 @@ export default function Home() {
 
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
           <div className="w-px h-12 bg-dewar-red/40 relative scroll-indicator">
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-dewar-red/80 rounded-full" />
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 size-1 bg-dewar-red/80 rounded-full" />
           </div>
         </div>
       </section>
@@ -99,7 +110,7 @@ export default function Home() {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="group relative overflow-hidden bg-ink/50 backdrop-blur-sm border border-white/10 hover:border-dewar-red/30 transition-all duration-700">
+            <div className="group relative overflow-hidden bg-ink/50 backdrop-blur-sm border border-white/10 hover:border-dewar-red/30 transition-colors duration-500">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 <div className="aspect-square lg:aspect-auto lg:h-96 relative overflow-hidden">
                   <Image
@@ -120,7 +131,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="p-8 lg:p-12 space-y-6 flex flex-col justify-center">
+                <div className="flex flex-col justify-center gap-7 p-8 sm:p-10 lg:p-12">
                   <div>
                     <p className="type-eyebrow text-dewar-red mb-3">2026 Collection</p>
                     <h3 className="type-section-title text-on-dark-primary mb-4">
@@ -130,7 +141,7 @@ export default function Home() {
                       Each guitar is a unique masterpiece with hand-painted finishes that will never be exactly replicated.
                     </p>
 
-                    <div className="space-y-3 mb-6">
+                    <div className="mb-6 flex flex-col gap-4">
                       {[
                         "Custom Tool-less Bridge",
                         "Hand-wound Humbuckers",
@@ -138,8 +149,8 @@ export default function Home() {
                         "90% Hand-crafted Components",
                         "Unique Hand-painted Finish",
                       ].map((feature) => (
-                        <div key={feature} className="flex items-center space-x-3">
-                          <div className="w-1.5 h-1.5 bg-dewar-red rounded-full flex-shrink-0" />
+                        <div key={feature} className="flex items-center gap-3">
+                          <div className="size-2 bg-dewar-red rounded-full flex-shrink-0" />
                           <span className="type-body text-on-dark-secondary">{feature}</span>
                         </div>
                       ))}
@@ -154,7 +165,8 @@ export default function Home() {
                     <Link href="/guitar/distiller">
                       <Button
                         variant="luxury"
-                        className="w-full py-4 text-sm"
+                        size="lg"
+                        className="w-full"
                       >
                         View Details
                       </Button>
@@ -229,17 +241,10 @@ export default function Home() {
             />
           </div>
 
-          <div className="max-w-lg mx-auto space-y-8">
-            <Button
-              asChild
-              variant="luxury"
-              size="lg"
-              className="w-full text-lg py-6"
-            >
-              <a href="mailto:info@dewarguitars.com">Email info@dewarguitars.com</a>
-            </Button>
+          <div className="max-w-xl mx-auto flex flex-col gap-8">
+            <InquiryForm source="contact-section" />
 
-            <p className="type-caption text-on-dark-subtle">
+            <p className="type-body text-on-dark-muted">
               Limited to 12 instruments · Handcrafted in Holliston, Massachusetts
             </p>
           </div>

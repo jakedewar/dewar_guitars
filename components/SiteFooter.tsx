@@ -1,82 +1,42 @@
 import Link from "next/link"
 import Image from "next/image"
+import { Button } from "@/components/ui/button"
 
 export default function SiteFooter() {
   const year = new Date().getFullYear()
 
   return (
     <footer className="bg-ink border-t border-white/5">
-      <div className="container mx-auto px-6 md:px-8 lg:px-12 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-          <div className="space-y-6">
+      <div className="container mx-auto px-6 py-14 md:px-8 lg:px-12">
+        <div className="flex flex-col items-center gap-6 text-center">
+          <Link href="/" aria-label="Dewar Guitars home">
             <Image
               src="/images/DEWAR v3 trans AI 1.svg"
               alt="Dewar Guitars"
               width={150}
               height={45}
-              className="h-12 w-auto opacity-90"
+              className="h-12 w-auto opacity-95"
             />
-            <div className="space-y-3">
-              <p className="type-body text-on-dark-secondary max-w-sm">
-                Handcrafted by master luthier Jim Dewar in Holliston, Massachusetts. Only 12 guitars per year. Each instrument represents a decade of uncompromising craftsmanship.
-              </p>
-              <p className="type-caption text-on-dark-subtle">
-                Limited edition · Artisanal craftsmanship
-              </p>
-            </div>
-          </div>
+          </Link>
 
-          <div className="space-y-6">
-            <h3 className="type-eyebrow text-on-dark-primary">Contact</h3>
-            <div className="space-y-4">
-              <a
-                href="mailto:info@dewarguitars.com"
-                className="block type-body text-on-dark-secondary hover:text-dewar-red transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2"
-              >
-                info@dewarguitars.com
-              </a>
-              <p className="type-body text-on-dark-secondary">
-                Holliston, Massachusetts
-              </p>
-            </div>
-          </div>
+          <p className="type-body max-w-xl text-on-dark-secondary">
+            Handcrafted guitars built in Holliston, Massachusetts. Only 12 instruments per year.
+          </p>
 
-          <div className="space-y-6">
-            <h3 className="type-eyebrow text-on-dark-primary">Follow</h3>
-            <div className="flex space-x-8">
-              <a
-                href="https://instagram.com/dewarguitars"
-                className="type-body text-on-dark-secondary hover:text-dewar-red transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2"
-              >
-                Instagram
-              </a>
-              <a
-                href="#"
-                className="type-body text-on-dark-secondary hover:text-dewar-red transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2"
-              >
-                YouTube
-              </a>
-            </div>
+          <Button asChild variant="luxury" size="lg" className="w-full sm:w-auto">
+            <Link href="mailto:info@dewarguitars.com">Get in Touch</Link>
+          </Button>
 
-            <div className="pt-4">
-              <Link
-                href="mailto:info@dewarguitars.com"
-                className="inline-block border border-white/40 text-on-dark-secondary hover:border-dewar-red hover:text-dewar-red transition-all duration-500 type-eyebrow px-6 py-3 focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2"
-              >
-                Get in touch
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-16 pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="mt-6 flex flex-col items-center gap-3 border-t border-white/10 pt-6 sm:flex-row sm:gap-6">
             <p className="type-caption text-on-dark-subtle">
-              © {year} Dewar Guitars · All rights reserved
+              © {year} Dewar Guitars
             </p>
-            <p className="type-caption text-on-dark-subtle">
-              Handcrafted in Holliston, Massachusetts
-            </p>
+            <a
+              href="https://instagram.com/dewarguitars"
+              className="type-caption text-on-dark-subtle transition-colors duration-300 hover:text-dewar-red focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2"
+            >
+              Instagram
+            </a>
           </div>
         </div>
       </div>

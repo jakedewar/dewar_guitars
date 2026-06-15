@@ -18,7 +18,7 @@ export default function SectionHeader({
   const isDark = theme === "dark"
 
   return (
-    <div className={`text-center mb-16 md:mb-20 ${className}`}>
+    <div className={`text-center mb-14 sm:mb-16 md:mb-20 ${className}`}>
       <div
         className={`type-eyebrow mb-4 md:mb-6 ${
           isDark ? "text-on-dark-muted" : "text-on-light-muted"
@@ -40,7 +40,7 @@ export default function SectionHeader({
       />
       {lead && (
         <p
-          className={`type-lead max-w-3xl mx-auto ${
+          className={`type-lead max-w-4xl mx-auto ${
             isDark ? "text-on-dark-secondary" : "text-on-light-secondary"
           }`}
         >

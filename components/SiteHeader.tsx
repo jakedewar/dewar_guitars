@@ -4,7 +4,7 @@ import MobileNavigation from "@/components/MobileNavigation"
 
 const navLinks = [
   { href: "/#story", label: "Story" },
-  { href: "/#collection", label: "Collection" },
+  { href: "/guitar/distiller", label: "Collection" },
   { href: "/#craftsmanship", label: "Craftsmanship" },
   { href: "mailto:info@dewarguitars.com", label: "Contact" },
 ]
@@ -25,12 +25,12 @@ export default function SiteHeader() {
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center space-x-12">
+          <nav className="hidden lg:flex items-center gap-10 xl:gap-12">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-on-dark-secondary hover:text-on-dark-primary transition-all duration-500 font-body text-sm uppercase tracking-[0.1em] relative nav-link-underline focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2"
+                className="text-on-dark-secondary hover:text-on-dark-primary transition-colors duration-300 font-body text-[0.9375rem] uppercase tracking-[0.08em] relative nav-link-underline focus-visible:outline-2 focus-visible:outline-dewar-red focus-visible:outline-offset-2"
               >
                 {link.label}
               </Link>
