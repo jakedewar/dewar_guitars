@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, Source_Sans_3 } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
+import { KlaviyoScript } from '@/components/KlaviyoScript'
 import './globals.css'
 
 const displayFont = Cormorant_Garamond({
@@ -157,6 +159,8 @@ export default function RootLayout({
       </head>
       <body className={`${bodyFont.className} font-body`}>
         {children}
+        <KlaviyoScript />
+        <Analytics />
       </body>
     </html>
   )
