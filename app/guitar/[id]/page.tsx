@@ -251,19 +251,6 @@ export default async function GuitarPage({ params }: GuitarPageProps) {
             ))}
           </div>
 
-          <div className="mt-8 sm:mt-12 md:mt-16 text-center">
-            <div className="border border-dewar-red/30 bg-dewar-red/5 p-6 sm:p-8 md:p-12 max-w-4xl mx-2 sm:mx-auto">
-              <h3 className="type-section-title text-on-dark-primary mb-3 sm:mb-4 md:mb-6">
-                Limited to 12 Guitars Per Year
-              </h3>
-              <p className="type-lead text-on-dark-secondary mb-4 sm:mb-6 md:mb-8 px-2">
-                Each Distiller is a rare masterpiece. When you own one, you&apos;re not just buying a guitar—you&apos;re joining an exclusive community of artists who demand nothing less than perfection.
-              </p>
-              <p className="type-body text-dewar-red font-semibold">
-                Exclusivity · Artistry · Legacy
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
